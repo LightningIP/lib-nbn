@@ -3,7 +3,7 @@ import { NTDLocationEnum, NTDPowerTypeEnum, NTDTypeEnum, SupportingResourceTypeE
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
 import { IUNIPort } from "src/service-qualification/sub-interfaces";
 import { NTDBatteryBackup } from "../../embeddables/NTDBatteryBackup.embed";
-import { LocationEntity } from "src/location/models/location.entity";
+import { LocationEntity } from "src/location/models/entity.location";
 
 
 @Entity({

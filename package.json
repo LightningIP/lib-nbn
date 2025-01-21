@@ -25,6 +25,7 @@
         "@mikro-orm/core": "^6.4.2",
         "@types/is-uuid": "^1.0.2",
         "is-uuid": "^1.0.2",
+        "node-verhoeff": "^0.0.11",
         "superstruct": "^2.0.2",
         "zod": "^3.24.1"
     },

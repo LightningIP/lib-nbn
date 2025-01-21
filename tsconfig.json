@@ -17,6 +17,11 @@
     "skipLibCheck": true,
     "strict": true,
     "rootDir": "./src",
+    "paths": {
+      "*": ["src/@custom_types/*"],
+      "src/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "src/@custom_types/*"]
 }

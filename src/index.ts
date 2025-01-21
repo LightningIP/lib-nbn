@@ -1,4 +1,4 @@
-import { LocationEntity } from './location/models/location.entity';
+import { LocationEntity } from './location/models/entity.location';
 import { CopperLineResourceEntity } from './service-qualification/models/discriminators/SiteRestrictionSupportingResource/CopperLineResource.descr';
 import { NTDResourceEntity } from './service-qualification/models/discriminators/SiteRestrictionSupportingResource/NTDResource.desc';
 import { NCASProductFeatureEntity } from './service-qualification/models/discriminators/SupportingProductFeatures/NCASProductFeature.descr';
