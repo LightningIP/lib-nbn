@@ -1,4 +1,4 @@
-import { ZFeatureType } from "src/structures";
+import { ZFeatureType } from "../..//structures";
 import { z } from "zod";
 
 export const ISpeedTiersSupported = z.strictObject({

@@ -1,4 +1,4 @@
-import { ZBandwidthType, ZFeatureType, ZUnitOfMeasure } from "src/structures";
+import { ZBandwidthType, ZFeatureType, ZUnitOfMeasure } from "../..//structures";
 import { number, object, string } from "zod";
 import { strictObject } from "zod";
 
