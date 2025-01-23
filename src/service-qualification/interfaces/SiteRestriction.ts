@@ -1,6 +1,8 @@
 import { array, date, optional, z } from "zod";
-import { ZLocationID, ZServiceabilityStatus } from "../../structures";
 import { ISiteRestrictionNote, ISupportingProduct, ISupportingProductFeature, ISupportingRelatedLocationFeatures, ISupportingRelatedSiteBoundaries, ISupportingResource, ISupportingTechnology } from "../sub-interfaces";
+import { ZLocationID } from "@location";
+import { ZServiceabilityStatus } from "structures";
+
 
 export const ISiteRestriction = z.strictObject({
     id: ZLocationID(),

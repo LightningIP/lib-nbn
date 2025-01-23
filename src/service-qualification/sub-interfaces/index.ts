@@ -13,6 +13,5 @@ export * from './SpeedTiersSupported';
 export * from './SupportedRelatedLocationFeatures';
 export * from './SupportingProduct';
 export * from './SupportingRelatedSiteBoundaries';
-export * from '../../structures/SupportingResourceType.struct';
 export * from './SupportingTechnology';
 export * from './UNIPort';

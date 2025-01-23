@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "module": "CommonJS",
     "lib": ["ES2017"],
     "esModuleInterop": true,
     "declaration": true,
@@ -13,16 +12,25 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
     "rootDir": "./src",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["src/@custom_types/*"],
-      "src/*": ["src/*"]
+      "@common/*": ["./common/*"],
+      "@address-detail": ["./address-detail/index.ts"],
+      "@address-detail/*": ["./address-detail/*"],
+      "@location": ["./location/index.ts"],
+      "@location/*": ["./location/*"],
+      "@service-qualification": ["./service-qualification/index.ts"],
+      "@service-qualification/*": ["./service-qualification/*"],
     }
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/@custom_types/*"]
+  "exclude": [
+    "/dist",
+    "/node_modules",
+    "/src/@custom_types/*"
+  ]
 }

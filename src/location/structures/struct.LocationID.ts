@@ -1,7 +1,7 @@
-import { z } from "zod";
+import { string } from "zod";
 import { validateAadhaar } from "../../@custom_types/node-verhoeff";
 
-export const ZLocationID = () => z.string()
+export const ZLocationID = () => string()
     .min(15, 'Location ID must be 15 characters long.')
     .max(15, 'Location ID must be 15 characters long.')
     .regex(/^LOC\d{12}$/, 'Location ID must be in the format LOC############')

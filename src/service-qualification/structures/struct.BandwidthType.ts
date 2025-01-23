@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { nativeEnum } from "zod";
 
 export enum EBandwidthType {
     "UpstreamMeasuredRate" = "UpstreamMeasuredRate",
@@ -8,4 +8,4 @@ export enum EBandwidthType {
     "DownstreamEstimatedRate" = "DownstreamEstimatedRate",
 }
 
-export const ZBandwidthType = () => z.nativeEnum(EBandwidthType);
+export const ZBandwidthType = () => nativeEnum(EBandwidthType);

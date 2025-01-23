@@ -4,7 +4,11 @@
     "version": "0.3.0",
     "description": "Library of NBN interfaces",
     "exports": {
-        ".": "./dist/index.js"
+        ".": "./dist/interfaces.js",
+        "./all": "./dist/index.js",
+        "./interfaces": "./dist/interfaces.js",
+        "./structures": "./dist/structures.js",
+        "./models": "./dist/models.js"
     },
     "types": "dist/index.d.ts",
     "type": "commonjs",
