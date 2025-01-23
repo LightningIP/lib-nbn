@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum NTDPowerTypeEnum {
+export enum ENTDPowerType {
     "AC" = "AC",
     "DC" = "DC",
 }
 
-export const NTDPowerTypeArray = Object.values(NTDPowerTypeEnum)
-
-export const NTDPowerType = () => enums(NTDPowerTypeArray);
+export const ZNTDPowerType = () => z.nativeEnum(ENTDPowerType);

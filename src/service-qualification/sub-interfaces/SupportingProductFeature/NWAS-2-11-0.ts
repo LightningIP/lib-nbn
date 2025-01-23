@@ -1,9 +1,10 @@
-import { array, literal, object, optional, string } from "superstruct";
+import { array, literal, object, optional, string } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
 import { IBandwidthAvailability } from "../BandwidthAvailability";
+import { ZTechnologyType } from "src/structures";
 
 export const ISPF_NWAS_2110 = object({
-    type: literal('NWAS'),
+    type: literal(ZTechnologyType().enum.NWAS),
     version: literal('2.11.0'),
     capacityAvailability: optional(array(ICapacityAvailability)),
     speedTierAvailability: optional(array(string())),

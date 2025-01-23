@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum NTDTypeEnum {
+export enum ENTDType {
     "INTERNAL" = "INTERNAL",
     "EXTERNAL" = "EXTERNAL",
 }
 
-export const NTDTypeArray = Object.values(NTDTypeEnum)
-
-export const NTDType = () => enums(NTDTypeArray);
+export const ZNTDType = () => z.nativeEnum(ENTDType);

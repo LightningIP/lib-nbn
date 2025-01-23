@@ -1,5 +1,5 @@
 import { Embeddable, Property, Enum } from '@mikro-orm/core';
-import { NonPremiseLocationEnum } from 'src/structures/NonPremiseLocation.struct';
+import { ENonPremiseLocation } from 'src/structures/NonPremiseLocation.struct';
 
 @Embeddable()
 export class SupportingRelatedLocationFeatures {
@@ -23,11 +23,11 @@ export class SupportingRelatedLocationFeatures {
   networkBoundaryPoint?: string;
 
   @Enum({
-    items: () => NonPremiseLocationEnum,
+    items: () => ENonPremiseLocation,
     nullable: true,
     nativeEnumName: 'non_premise_location',
   })
-  nonPremiseLocation?: NonPremiseLocationEnum;
+  nonPremiseLocation?: ENonPremiseLocation;
 
   @Property({ nullable: true })
   MDU?: boolean;

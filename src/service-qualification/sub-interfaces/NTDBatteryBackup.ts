@@ -1,8 +1,9 @@
-import { YMDDate } from "src/structures";
-import { boolean, coerce, date, enums, object, optional, string } from "superstruct";
+import { z } from "zod";
 
-export const INTDBatteryBackup = object({
-    batteryPowerUnit: boolean(),
-    powerSupplywithBatteryBackupInstallDate: YMDDate(),
-    batteryPowerUnitMonitored: optional(enums(['ENABLED'])),
-})
+const ZBatteryPowerUnitMonitored = z.enum(['ENABLED']);
+
+export const INTDBatteryBackup = z.strictObject({
+    batteryPowerUnit: z.boolean(),
+    powerSupplywithBatteryBackupInstallDate: z.string().date(),
+    batteryPowerUnitMonitored: ZBatteryPowerUnitMonitored.optional(),
+});

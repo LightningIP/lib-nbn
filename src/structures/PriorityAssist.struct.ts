@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum PriorityAssistEnum {
+export enum EPriorityAssist {
     "Yes" = "Yes",
     "No" = "No",
 }
 
-export const PriorityAssistArray = Object.values(PriorityAssistEnum);
-
-export const PriorityAssist = () => enums(PriorityAssistArray);
+export const ZPriorityAssist = () => nativeEnum(EPriorityAssist);

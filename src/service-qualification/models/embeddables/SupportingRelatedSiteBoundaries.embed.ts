@@ -1,13 +1,13 @@
 import { Enum, Property } from "@mikro-orm/core";
-import { RegionEnum } from "src/structures"
+import { ERegion } from "src/structures"
 
 export class SupportingRelatedSiteBoundariesEntity {
     
     @Enum({
-        items: () => RegionEnum,
+        items: () => ERegion,
         nativeEnumName: 'region',
     })
-    region!: RegionEnum;
+    region!: ERegion;
 
     @Property({ length: 15 })
     CSAId!: string;

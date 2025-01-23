@@ -1,3 +1,3 @@
-import { pattern, string } from "superstruct";
+import { string } from "zod";
 
-export const CSAID = () => pattern(string(), /^CSA\d{12}$/);
+export const ZCSAID = () => string().regex(/^CSA\d{12}$/);

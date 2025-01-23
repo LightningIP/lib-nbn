@@ -1,11 +1,10 @@
-import { AccessTechnology, ServiceabilityClass } from "../../structures";
-import { boolean, Describe, object, optional, string } from "superstruct";
-import { SupportingTechnologyEntity } from "../models/embeddables/SupportingTechnology.embed";
+import { z } from "zod";
+import { ZAccessTechnology, ZServiceabilityClass } from "../../structures";
 
-export const ISupportingTechnology: Describe<SupportingTechnologyEntity> = object({
-    primaryAccessTechnology: AccessTechnology(),
-    serviceabilityClass: ServiceabilityClass(),
-    serviceabilityClassReason: optional(string()),
-    alternativeTechnology: optional(AccessTechnology()),
-    businessFibre: boolean(),
+export const ISupportingTechnology= z.strictObject({
+    primaryAccessTechnology: ZAccessTechnology(),
+    serviceabilityClass: ZServiceabilityClass(),
+    serviceabilityClassReason: z.string().optional(),
+    alternativeTechnology: ZAccessTechnology().optional(),
+    businessFibre: z.boolean(),
 });

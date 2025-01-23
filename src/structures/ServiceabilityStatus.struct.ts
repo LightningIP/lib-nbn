@@ -1,11 +1,9 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum ServiceabilityStatusEnum {
+export enum EServiceabilityStatus {
     "Serviceable" = "Serviceable",
     "Serviceable - Shortfall" = "Serviceable - Shortfall",
     "Rejected" = "Rejected",
 }
 
-export const ServiceabilityStatusArray = Object.values(ServiceabilityStatusEnum);
-
-export const ServiceabilityStatus = () => enums(ServiceabilityStatusArray);
+export const ZServiceabilityStatus = () => nativeEnum(EServiceabilityStatus);

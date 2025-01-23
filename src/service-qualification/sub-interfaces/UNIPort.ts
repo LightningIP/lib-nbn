@@ -1,6 +1,6 @@
-import { string, object } from "superstruct";
+import { z } from "zod";
 
-export const IUNIPort = object({
-    id: string(),
-    status: string(),
+export const IUNIPort = z.strictObject({
+    id: z.string(),
+    status: z.string(),
 });

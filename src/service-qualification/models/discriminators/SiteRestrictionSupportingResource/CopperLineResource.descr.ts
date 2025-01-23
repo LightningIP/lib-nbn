@@ -1,24 +1,24 @@
 import { Entity, Enum, Property } from "@mikro-orm/core";
-import { CopperPairStatusEnum, NBNServiceStatusEnum, POTSInterconnectTypeEnum, ServiceabilityClass, ServiceabilityClassType, SupportingResourceTypeEnum } from "src/structures";
+import { CopperPairStatusEnum, ENBNServiceStatus, EPOTSInterconnectType, ESupportingResourceType, ServiceabilityClassType } from "src/structures";
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
 import { IBandwidthRatesSupported, ICopperBandwidthRates } from "src/service-qualification/sub-interfaces";
 
 
 @Entity({
-  discriminatorValue: SupportingResourceTypeEnum.CopperLineResource,
+  discriminatorValue: ESupportingResourceType.CopperLineResource,
 })
 export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceEntity {
 
   constructor() {
     super();
-    this.type = SupportingResourceTypeEnum.CopperLineResource;
+    this.type = ESupportingResourceType.CopperLineResource;
   }
 
   @Enum({
-    items: () => SupportingResourceTypeEnum,
+    items: () => ESupportingResourceType,
     nativeEnumName: 'supporting_resource_type',
   })
-  type!: SupportingResourceTypeEnum.CopperLineResource;
+  type!: ESupportingResourceType.CopperLineResource;
 
   @Property()
   networkCoexistence!: boolean;
@@ -31,10 +31,10 @@ export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceE
   copperPairStatus?: CopperPairStatusEnum;
 
   @Property({ type: 'jsonb', nullable: true })
-  bandwidthRatesSupported?: typeof IBandwidthRatesSupported.TYPE[];
+  bandwidthRatesSupported?: typeof IBandwidthRatesSupported._type[];
 
   @Property({ type: 'jsonb' })
-  copperBandwidthRates!: typeof ICopperBandwidthRates.TYPE[];
+  copperBandwidthRates!: typeof ICopperBandwidthRates._type[];
 
   @Property({ type: 'int', length: 2 })
   serviceabilityClass!: ServiceabilityClassType;
@@ -46,11 +46,11 @@ export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceE
   subsequentInstallationChargeApplies!: boolean;
 
   @Enum({
-    items: () => NBNServiceStatusEnum,
+    items: () => ENBNServiceStatus,
     nativeEnumName: 'nbn_service_status',
     nullable: true,
   })
-  NBNServiceStatus?: NBNServiceStatusEnum;
+  NBNServiceStatus?: ENBNServiceStatus;
 
   @Property({ type: 'date', nullable: true, length: 10 })
   lastActiveDate?: string;
@@ -59,9 +59,9 @@ export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceE
   POTSInterconnect?: string;
 
   @Enum({
-    items: () => POTSInterconnectTypeEnum,
+    items: () => EPOTSInterconnectType,
     nativeEnumName: 'pots_interconnect_type',
     nullable: true,
   })
-  POTSInterconnectType?: POTSInterconnectTypeEnum;
+  POTSInterconnectType?: EPOTSInterconnectType;
 }

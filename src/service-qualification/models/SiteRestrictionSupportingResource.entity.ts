@@ -7,7 +7,7 @@ import {
   BaseEntity,
 } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
-import { SupportingResourceTypeEnum } from '../../structures';
+import { ESupportingResourceType } from '../../structures';
 
 @Entity({
   discriminatorColumn: 'type',
@@ -26,10 +26,10 @@ export abstract class SiteRestrictionSupportingResourceEntity extends BaseEntity
   id!: string;
 
   @Enum({
-    items: () => SupportingResourceTypeEnum,
+    items: () => ESupportingResourceType,
     nativeEnumName: 'supporting_resource_type',
   })
-  type!: SupportingResourceTypeEnum;
+  type!: ESupportingResourceType;
 
   @Property({ length: 8 })
   version!: string;

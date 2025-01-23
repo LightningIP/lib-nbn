@@ -1,6 +1,6 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum SpeedTierAvailabilityEnum {
+export enum ESpeedTierAvailability {
     "Home Fast" = "Home Fast",
     "Home Superfast" = "Home Superfast",
     "Home Ultrafast" = "Home Ultrafast",
@@ -8,6 +8,4 @@ export enum SpeedTierAvailabilityEnum {
     "FW Superfast" = "FW Superfast",
 }
 
-export const SpeedTierAvailabilityArray = Object.values(SpeedTierAvailabilityEnum)
-
-export const SpeedTierAvailability = () => enums(SpeedTierAvailabilityArray);
+export const ZSpeedTierAvailability = () => nativeEnum(ESpeedTierAvailability);

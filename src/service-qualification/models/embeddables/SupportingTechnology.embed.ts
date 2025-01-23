@@ -1,14 +1,14 @@
 import { Embeddable, Enum, Property } from "@mikro-orm/core";
-import { AccessTechnologyEnum, ServiceabilityClassType } from "src/structures";
+import { EAccessTechnology, ServiceabilityClassType } from "src/structures";
 
 @Embeddable()
 export class SupportingTechnologyEntity {
 
     @Enum({
-        items: () => AccessTechnologyEnum,
+        items: () => EAccessTechnology,
         nativeEnumName: 'access_technology',
     })
-    primaryAccessTechnology!: AccessTechnologyEnum;
+    primaryAccessTechnology!: EAccessTechnology;
 
     @Property({
         type: 'integer',
@@ -23,11 +23,11 @@ export class SupportingTechnologyEntity {
     serviceabilityClassReason?: string;
 
     @Enum({
-        items: () => AccessTechnologyEnum,
+        items: () => EAccessTechnology,
         nativeEnumName: 'access_technology',
         nullable: true,
     })
-    alternativeTechnology?: AccessTechnologyEnum;
+    alternativeTechnology?: EAccessTechnology;
 
     @Property({
         type: 'boolean',

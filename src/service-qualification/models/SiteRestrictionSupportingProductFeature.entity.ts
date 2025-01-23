@@ -1,7 +1,7 @@
 import { Property, Enum, Entity, ManyToOne } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
-import { SpeedTierAvailabilityEnum } from 'src/structures';
-import { TechnologyType, TechnologyTypeEnum } from '../../structures/TechnologyType.struct';
+import { ESpeedTierAvailability } from 'src/structures';
+import { ETechnologyType } from '../../structures/TechnologyType.struct';
 import { IBandwidthAvailability, ICapacityAvailability } from '../sub-interfaces';
 
 @Entity({
@@ -19,11 +19,11 @@ export abstract class SiteRestrictionSupportingProductFeature {
   siteRestriction!: SiteRestrictionEntity;
 
   @Enum({
-    items: () => TechnologyTypeEnum,
+    items: () => ETechnologyType,
     nativeEnumName: 'service_type_code',
     primary: true
   })
-  type!: TechnologyTypeEnum;
+  type!: ETechnologyType;
 
   @Property()
   version!: string;
@@ -32,19 +32,19 @@ export abstract class SiteRestrictionSupportingProductFeature {
   multicast?: boolean;
 
   @Property({ type: 'jsonb', nullable: true })
-  capacityAvailability?: (typeof ICapacityAvailability.TYPE)[];
+  capacityAvailability?: (typeof ICapacityAvailability._type)[];
 
   @Enum({
-    items: () => SpeedTierAvailabilityEnum,
+    items: () => ESpeedTierAvailability,
     array: true,
     default: [],
     nullable: true,
     nativeEnumName: 'speed_tier',
   })
-  speedTierAvailability?: SpeedTierAvailabilityEnum[] = [];
+  speedTierAvailability?: ESpeedTierAvailability[] = [];
 
   @Property({ type: 'jsonb', nullable: true })
-  bandwidthAvailability?: (typeof IBandwidthAvailability.TYPE)[];
+  bandwidthAvailability?: (typeof IBandwidthAvailability._type)[];
 
   @Property({ nullable: true })
   TC2?: boolean;

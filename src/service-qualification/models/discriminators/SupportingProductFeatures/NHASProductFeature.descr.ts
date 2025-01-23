@@ -1,35 +1,35 @@
 import { Entity, Enum, Property } from "@mikro-orm/core";
-import { SpeedTierAvailabilityEnum, TechnologyTypeEnum } from "src/structures";
+import { ESpeedTierAvailability, ETechnologyType } from "src/structures";
 import { ICapacityAvailability } from "src/service-qualification/sub-interfaces";
 import { SiteRestrictionSupportingProductFeature } from "../../SiteRestrictionSupportingProductFeature.entity";
 
 
 @Entity({
-    discriminatorValue: TechnologyTypeEnum.NCAS
+    discriminatorValue: ETechnologyType.NHAS
 })
 export class NHASProductFeatureEntity extends SiteRestrictionSupportingProductFeature {
     
     constructor() {
         super();
-        this.type = TechnologyTypeEnum.NCAS;
+        this.type = ETechnologyType.NHAS;
     }
 
     @Enum({
-        items: () => TechnologyTypeEnum,
+        items: () => ETechnologyType,
         nativeEnumName: 'service_type_code',
         primary: true
     })
-    type = TechnologyTypeEnum.NCAS;
+    type = ETechnologyType.NHAS;
 
     @Property({ type: 'jsonb', nullable: true })
-    capacityAvailability?: (typeof ICapacityAvailability.TYPE)[];
+    capacityAvailability?: (typeof ICapacityAvailability._type)[];
 
     @Enum({
-        items: () => SpeedTierAvailabilityEnum,
+        items: () => ESpeedTierAvailability,
         array: true,
         default: [],
         nativeEnumName: 'speed_tier',
     })
-    speedTierAvailability: SpeedTierAvailabilityEnum[] = [];
+    speedTierAvailability: ESpeedTierAvailability[] = [];
 
 }

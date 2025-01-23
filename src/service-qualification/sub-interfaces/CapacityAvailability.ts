@@ -1,10 +1,10 @@
-import { boolean, number, object, optional } from "superstruct";
-import { FeatureType, UnitOfMeasure } from "../../structures";
+import { boolean, number, optional, z } from "zod";
+import { ZFeatureType, ZUnitOfMeasure } from "../../structures";
 
-export const ICapacityAvailability = object({
-    featureType: FeatureType(),
+export const ICapacityAvailability = z.strictObject({
+    featureType: ZFeatureType(),
     capacity: number(),
-    unitOfMeasure: UnitOfMeasure(),
+    unitOfMeasure: ZUnitOfMeasure(),
     available: optional(boolean()),
     highSpeedNotLessThan: optional(boolean()),
 });

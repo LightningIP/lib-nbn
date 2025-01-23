@@ -1,6 +1,6 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum BandwidthTypeEnum {
+export enum EBandwidthType {
     "UpstreamMeasuredRate" = "UpstreamMeasuredRate",
     "DownstreamMeasuredRate" = "DownstreamMeasuredRate",
     "RemainingBandwidth" = "RemainingBandwidth",
@@ -8,6 +8,4 @@ export enum BandwidthTypeEnum {
     "DownstreamEstimatedRate" = "DownstreamEstimatedRate",
 }
 
-export const BandwidthTypeArray = Object.values(BandwidthTypeEnum)
-
-export const BandwidthType = () => enums(BandwidthTypeArray);
+export const ZBandwidthType = () => z.nativeEnum(EBandwidthType);

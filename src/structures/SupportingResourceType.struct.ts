@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum SupportingResourceTypeEnum {
+export enum ESupportingResourceType {
     "NTD" = "NTD",
     "CopperLineResource" = "CopperLineResource",
 }
 
-export const SupportingResourceTypeArray = Object.values(SupportingResourceTypeEnum);
-
-export const SupportingResourceType = () => enums(SupportingResourceTypeArray);
+export const ZSupportingResourceType = () => z.nativeEnum(ESupportingResourceType);

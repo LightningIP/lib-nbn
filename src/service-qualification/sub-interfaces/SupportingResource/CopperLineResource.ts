@@ -1,39 +1,34 @@
-import { CopperPairID, CopperPairStatus, NBNServiceStatus, POTSInterconnectType, ServiceabilityClass, SupportingResourceType, SupportingResourceTypeEnum, YMDDate } from "../../../structures";
-import { array, boolean, Describe, enums, literal, object, optional, string } from "superstruct";
+import { ZCopperPairID, ZSupportingResourceType, ZServiceabilityClass, ZNBNServiceStatus, ZPOTSInterconnectType } from "../../../structures";
 import { ICopperBandwidthRates } from "../CopperBandwidthRates";
 import { IBandwidthRatesSupported } from "../BandwidthRatesSupported";
-import { EntityDTO } from "@mikro-orm/core";
-import { CopperLineResourceEntity } from "src/service-qualification/models/discriminators/SiteRestrictionSupportingResource/CopperLineResource.descr";
+import { z } from "zod";
 
-type CLRDTO = EntityDTO<CopperLineResourceEntity>;
-type DESCRIBER = Omit<CLRDTO, 'siteRestriction'>;
+export const ICopperLineResource = z.strictObject({
 
-export const ICopperLineResource: Describe<DESCRIBER> = object({
-
-    id: CopperPairID(),
-    type: literal(SupportingResourceTypeEnum.CopperLineResource),
-    version: string(),
+    id: ZCopperPairID(),
+    type: z.literal(ZSupportingResourceType().enum.CopperLineResource),
+    version: z.string(),
     
-    networkCoexistence: boolean(),
+    networkCoexistence: z.boolean(),
 
-    copperPairStatus: optional(CopperPairStatus()),
+    copperPairStatus: ZCopperPairID().optional(),
 
-    bandwidthRatesSupported: optional(array(IBandwidthRatesSupported)),
+    bandwidthRatesSupported: IBandwidthRatesSupported.array().optional(),
 
-    copperBandwidthRates: array(ICopperBandwidthRates),
+    copperBandwidthRates: ICopperBandwidthRates.array(),
 
-    serviceabilityClass: ServiceabilityClass(),
+    serviceabilityClass: ZServiceabilityClass(),
 
-    remediationRequired: optional(boolean()),
+    remediationRequired: z.boolean().optional(),
 
-    subsequentInstallationChargeApplies: boolean(),
+    subsequentInstallationChargeApplies: z.boolean(),
 
-    NBNServiceStatus: optional(NBNServiceStatus()),
+    NBNServiceStatus: ZNBNServiceStatus().optional(),
 
-    lastActiveDate: optional(YMDDate()),
+    lastActiveDate: z.string().date().optional(),
 
-    POTSInterconnect: optional(string()),
+    POTSInterconnect: z.string().optional(),
 
-    POTSInterconnectType: optional(POTSInterconnectType()),
+    POTSInterconnectType: ZPOTSInterconnectType().optional(),
 
 });

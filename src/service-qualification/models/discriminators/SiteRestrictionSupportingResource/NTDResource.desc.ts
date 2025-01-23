@@ -1,5 +1,5 @@
 import { Embedded, Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
-import { NTDLocationEnum, NTDPowerTypeEnum, NTDTypeEnum, SupportingResourceTypeEnum } from "src/structures";
+import { ENTDLocation, ENTDPowerType, ENTDType, ESupportingResourceType } from "src/structures";
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
 import { IUNIPort } from "src/service-qualification/sub-interfaces";
 import { NTDBatteryBackup } from "../../embeddables/NTDBatteryBackup.embed";
@@ -7,39 +7,39 @@ import { LocationEntity } from "src/location/models/entity.location";
 
 
 @Entity({
-    discriminatorValue: SupportingResourceTypeEnum.NTD
+    discriminatorValue: ESupportingResourceType.NTD
 })
 export class NTDResourceEntity extends SiteRestrictionSupportingResourceEntity {
     
     @Property({ type: 'jsonb', nullable: true })
-    uniPortD!: typeof IUNIPort.TYPE[];
+    uniPortD!: typeof IUNIPort._type[];
 
     @Property({ type: 'jsonb', nullable: true })
-    uniPortV?: typeof IUNIPort.TYPE[];
+    uniPortV?: typeof IUNIPort._type[];
 
     @Property({ nullable: true })
     antennaDishSize?: string;
 
     @Enum({
-        items: () => NTDLocationEnum,
+        items: () => ENTDLocation,
         nativeEnumName: 'ntd_location',
         nullable: true,
     })
-    NTDLocation?: NTDLocationEnum;
+    NTDLocation?: ENTDLocation;
 
     @Enum({
-        items: () => NTDTypeEnum,
+        items: () => ENTDType,
         nativeEnumName: 'ntd_type',
         nullable: true,
     })
-    NTDType?: NTDTypeEnum;
+    NTDType?: ENTDType;
 
     @Enum({
-        items: () => NTDPowerTypeEnum,
+        items: () => ENTDPowerType,
         nativeEnumName: 'ntd_power_type',
         nullable: true,
     })
-    NTDPowerType?: NTDPowerTypeEnum;
+    NTDPowerType?: ENTDPowerType;
 
     @Embedded({
         entity: () => NTDBatteryBackup,

@@ -7,7 +7,7 @@ import {
   ArrayType,
 } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
-import { PriorityAssistEnum } from 'src/structures';
+import { EPriorityAssist } from 'src/structures';
 
 @Entity()
 export class SiteRestrictionSupportingProduct {
@@ -19,11 +19,11 @@ export class SiteRestrictionSupportingProduct {
   id!: string;
 
   @Enum({
-    items: () => PriorityAssistEnum,
+    items: () => EPriorityAssist,
     nativeEnumName: 'priority_assist',
     nullable: true
   })
-  priorityAssist?: PriorityAssistEnum;
+  priorityAssist?: EPriorityAssist;
 
   @Property({ type: ArrayType, nullable: true })
   resourceRef?: string[];

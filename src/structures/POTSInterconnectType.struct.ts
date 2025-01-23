@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum POTSInterconnectTypeEnum {
+export enum EPOTSInterconnectType {
     'ULL' = 'ULL',
     'FNN' = 'FNN',
 }
 
-export const POTSInterconnectTypeArray = Object.values(POTSInterconnectTypeEnum);
-
-export const POTSInterconnectType = () => enums(POTSInterconnectTypeArray);
+export const ZPOTSInterconnectType = () => z.nativeEnum(EPOTSInterconnectType);

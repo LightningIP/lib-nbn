@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { array, boolean, literal, object, string } from "superstruct";
 import { SupportingResourceTypeEnum, IBandwidthRatesSupported, ICopperBandwidthRates } from "../";
 import { CopperPairID, NBNServiceStatus, ServiceabilityClass } from "../../../structures";

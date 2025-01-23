@@ -1,35 +1,35 @@
 
-import { NTDID, NTDLocation, NTDPowerType, NTDType } from "../../../structures";
-import { array, assign, literal, object, optional, pattern, string, union } from "superstruct";
+import { ZNTDID, ZNTDLocation, ZNTDPowerType, ZNTDType } from "../../../structures";
+import { z } from "zod";
 import { INTDBandwidth, ISpeedTiersSupported, IUNIPort } from "../";
 
-const BASE = object({
-    id: NTDID(),
-    type: literal('NTD'),
-    version: literal('2.10.0'),
-    uniPortD: array(IUNIPort),
+const BASE = z.strictObject({
+    id: ZNTDID(),
+    type: z.literal('NTD'),
+    version: z.literal('2.10.0'),
+    uniPortD: IUNIPort.array(),
 });
 
-const NWAS = assign(BASE, object({
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDPowerType: NTDPowerType(),
-    NTDVersion: string(),
-    NTDBandwidth: optional(array(INTDBandwidth)),
-    speedTiersSupported: array(ISpeedTiersSupported),
-}));
+const NWAS = BASE.extend({
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDPowerType: ZNTDPowerType(),
+    NTDVersion: z.string(),
+    NTDBandwidth: INTDBandwidth.array().optional(),
+    speedTiersSupported: ISpeedTiersSupported.array(),
+});
 
-const NFAS = assign(BASE, object({
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDPowerType: NTDPowerType(),
-}));
+const NFAS = BASE.extend({
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDPowerType: ZNTDPowerType(),
+});
 
-const NHAS = assign(BASE, object({
-    NTDMACAddress: pattern(string(), /^(?:--:){3}(?:[0-9A-Fa-f]{2}[:-]){2}(?:[0-9A-Fa-f]{2})$/),
-}));
+const NHAS = BASE.extend({
+    NTDMACAddress: z.string().regex(/^(?:--:){3}(?:[0-9A-Fa-f]{2}[:-]){2}(?:[0-9A-Fa-f]{2})$/),
+});
 
-export const ISR_NTD_2100 = union([
+export const ISR_NTD_2100 = z.union([
     BASE,
     NWAS,
     NFAS,

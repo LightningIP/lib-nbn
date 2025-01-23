@@ -1,18 +1,15 @@
-import { define, pattern, string, union } from 'superstruct';
-import isUuid from 'is-uuid';
+import { z } from 'zod';
 
-export const AppointmentID = () => pattern(string(), /^APT\d{12}$/);
+export const ZAppointmentID = () => z.string().regex(/^APT\d{12}$/);
 
-export const CopperPairID = () => pattern(string(), /^CPI\d{12}$/);
+export const ZCopperPairID = () => z.string().regex(/^CPI\d{12}$/);
 
-export const PRIID = () => pattern(string(), /^PRI\d{12}$/);
+export const ZPRIID = () => z.string().regex(/^PRI\d{12}$/);
 
-export const POIID = () => pattern(string(), /^\d[A-Z]{3}$/);
+export const ZPOIID = () => z.string().regex(/^\d[A-Z]{3}$/);
 
-export const NTDID = () => pattern(string(), /^NTD\d{12}$/);
+export const ZNTDID = () => z.string().regex(/^NTD\d{12}$/);
 
-export const AVCID = () => pattern(string(), /^AVC\d{12}$/);
+export const ZAVCID = () => z.string().regex(/^AVC\d{12}$/);
 
-export const UUID = () => define<string>('Uuid', (value) =>
-  isUuid.v4(value as string),
-);
+export const ZUUID = () => z.string().uuid();

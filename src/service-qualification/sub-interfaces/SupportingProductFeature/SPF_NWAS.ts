@@ -1,19 +1,14 @@
-import { array, boolean, Describe, object, optional, string } from "superstruct";
+import { array, boolean, object, optional, string } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
-import { SpeedTierAvailability, TechnologyType } from "src/structures";
-import { EntityDTO } from "@mikro-orm/core";
-import { NWASProductFeatureEntity } from "src/service-qualification/models/discriminators/SupportingProductFeatures/NWASProductFeature.descr";
+import { ZSpeedTierAvailability, ZTechnologyType } from "src/structures";
 import { IBandwidthAvailability } from "../BandwidthAvailability";
 
 
-type NCASPFDTO = EntityDTO<NWASProductFeatureEntity>;
-type DESCRIBER = Omit<NCASPFDTO, 'siteRestriction'>;
-
-export const ISPF_NWAS: Describe<DESCRIBER> = object({
-    type: TechnologyType(),
+export const ISPF_NWAS = object({
+    type: ZTechnologyType(),
     version: string(),
     multicast: optional(boolean()),
     capacityAvailability: optional(array(ICapacityAvailability)),
-    speedTierAvailability: array(SpeedTierAvailability()),
+    speedTierAvailability: array(ZSpeedTierAvailability()),
     bandwidthAvailability: optional(array(IBandwidthAvailability)),
 });

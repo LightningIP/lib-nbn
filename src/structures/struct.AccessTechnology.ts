@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export enum EAccessTechnologyEnum {
+export enum EAccessTechnology {
   'Fibre To The Node' = 'Fibre To The Node',
   'Fibre To The Curb' = 'Fibre To The Curb',
   'Satellite' = 'Satellite',
@@ -10,4 +10,4 @@ export enum EAccessTechnologyEnum {
   'Fibre To The Building' = 'Fibre To The Building',
 }
 
-export const ZAccessTechnology = () => z.nativeEnum(EAccessTechnologyEnum);
+export const ZAccessTechnology = () => z.nativeEnum(EAccessTechnology);

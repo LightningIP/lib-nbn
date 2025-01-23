@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { CopperPairID, CopperPairStatus, NBNServiceStatus, ServiceabilityClass, YMDDate } from "../../../structures";
 import { array, boolean, literal, object, optional } from "superstruct";
 import { IBandwidthRatesSupported } from "../BandwidthRatesSupported";

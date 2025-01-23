@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { z } from "zod";
 
-export enum NTDLocationEnum {
+export enum ENTDLocation {
     "INDOOR" = "INDOOR",
     "OUTDOOR" = "OUTDOOR",
 }
 
-export const NTDLocationArray = Object.values(NTDLocationEnum)
-
-export const NTDLocation = () => enums(NTDLocationArray);
+export const ZNTDLocation = () => z.nativeEnum(ENTDLocation);

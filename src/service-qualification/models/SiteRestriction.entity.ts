@@ -1,6 +1,6 @@
 
 import { Collection, Embedded, Entity, Enum, OneToMany, PrimaryKey, Property } from '@mikro-orm/core'
-import { ServiceabilityStatusEnum } from 'src/structures';
+import { EServiceabilityStatus } from 'src/structures';
 import { SupportingTechnologyEntity } from './embeddables/SupportingTechnology.embed';
 import { SupportingRelatedSiteBoundariesEntity } from './embeddables/SupportingRelatedSiteBoundaries.embed';
 import { ISiteRestrictionNote } from '../sub-interfaces';
@@ -33,10 +33,10 @@ export class SiteRestrictionEntity {
     }
     
     @Enum({
-        items: () => ServiceabilityStatusEnum,
+        items: () => EServiceabilityStatus,
         nativeEnumName: 'serviceability_status',
     })
-    serviceabilityStatus!: ServiceabilityStatusEnum;
+    serviceabilityStatus!: EServiceabilityStatus;
 
     @Embedded({
         entity: () => SupportingTechnologyEntity,
@@ -74,6 +74,6 @@ export class SiteRestrictionEntity {
     supportingProduct? = new Collection<SiteRestrictionSupportingProduct>(this);
 
     @Property({ type: 'jsonb', nullable: true })
-    notes?: (typeof ISiteRestrictionNote.TYPE)[];
+    notes?: (typeof ISiteRestrictionNote._type)[];
 
 }

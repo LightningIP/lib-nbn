@@ -6,7 +6,7 @@ export * from './BandwidthType.struct';
 export * from './BatteryPowerUnitMonitored.struct';
 export * from './CopperPairStatus.struct';
 export * from './CSAID.struct';
-export * from './FeatureType.struct';
+export * from './struct.FeatureType';
 
 export * from './identifiers.struct';
 
@@ -26,5 +26,5 @@ export * from './SpeedTierAvailability.struct';
 export * from './SupportingResourceType.struct';
 export * from './struct.TechnologyPlanStatus';
 export * from './TechnologyType.struct';
-export * from './UnitOfMeasure.struct';
+export * from './struct.UnitOfMeasure';
 export * from './YMDDate.struct';

@@ -1,17 +1,13 @@
-import { boolean, Describe, object, optional, string } from "superstruct";
-import { NonPremiseLocation } from "../../structures";
-import { SupportingRelatedLocationFeatures } from "../models/embeddables/SupportingRelatedLocationFeatures.embed";
-import { EntityDTO } from "@mikro-orm/core";
+import { boolean, object, optional, string } from "zod";
+import { ZNonPremiseLocation } from "../../structures";
 
-type DESCRIBER = EntityDTO<SupportingRelatedLocationFeatures>;
-
-export const ISupportingRelatedLocationFeatures: Describe<DESCRIBER> = object({
+export const ISupportingRelatedLocationFeatures = object({
     newDevelopmentsChargeApplies: boolean(),
     MDU: optional(boolean()),
     inHomeAmplifier: optional(boolean()),
     selfAndRSPProfessionalInstallEligible: optional(boolean()),
     safetyCriticalServiceAlert: optional(boolean()),
     networkBoundaryPoint: optional(string()),
-    nonPremiseLocation: optional(NonPremiseLocation()),
+    nonPremiseLocation: optional(ZNonPremiseLocation()),
     antennaDishSize: optional(string()),
 })

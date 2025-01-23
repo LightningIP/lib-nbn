@@ -1,9 +1,10 @@
-import { BandwidthType, FeatureType, UnitOfMeasure } from "src/structures";
-import { number, object, string } from "superstruct";
+import { ZBandwidthType, ZFeatureType, ZUnitOfMeasure } from "src/structures";
+import { number, object, string } from "zod";
+import { strictObject } from "zod";
 
-export const IBandwidthAvailability = object({
-    bandwidthType: BandwidthType(),
-    featureType: FeatureType(),
-    unitOfMeasure: UnitOfMeasure(),
+export const IBandwidthAvailability = strictObject({
+    bandwidthType: ZBandwidthType(),
+    featureType: ZFeatureType(),
+    unitOfMeasure: ZUnitOfMeasure(),
     bandwidth: number(),
 });

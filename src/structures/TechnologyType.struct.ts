@@ -1,6 +1,6 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum TechnologyTypeEnum {
+export enum ETechnologyType {
     "NFAS" = "NFAS",
     "NWAS" = "NWAS",
     "NSAS" = "NSAS",
@@ -8,6 +8,4 @@ export enum TechnologyTypeEnum {
     "NCAS" = "NCAS",
 }
 
-export const TechnologyTypeArray = Object.values(TechnologyTypeEnum);
-
-export const TechnologyType = () => enums(TechnologyTypeArray);
+export const ZTechnologyType = () => nativeEnum(ETechnologyType);

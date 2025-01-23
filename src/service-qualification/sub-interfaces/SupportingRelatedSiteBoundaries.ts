@@ -1,13 +1,9 @@
-import { boolean, Describe, object, optional } from "superstruct";
-import { CSAID, POIID, Region } from "../../structures";
-import { SupportingRelatedSiteBoundariesEntity } from "../models/embeddables/SupportingRelatedSiteBoundaries.embed";
-import { EntityDTO } from "@mikro-orm/core";
+import { z } from "zod";
+import { ZCSAID, ZPOIID, ZRegion } from "../../structures";
 
-type DESCRIBER = EntityDTO<SupportingRelatedSiteBoundariesEntity>;
-
-export const ISupportingRelatedSiteBoundaries: Describe<DESCRIBER> = object({
-    region: Region(),
-    CSAId: CSAID(),
-    poiId: optional(POIID()),
-    AETLocation: optional(boolean()),
+export const ISupportingRelatedSiteBoundaries = z.strictObject({
+    region: ZRegion(),
+    CSAId: ZCSAID(),
+    poiId: ZPOIID().optional(),
+    AETLocation: z.boolean().optional(),
 });

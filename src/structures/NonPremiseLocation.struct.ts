@@ -1,10 +1,8 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum NonPremiseLocationEnum {
+export enum ENonPremiseLocation {
     "Yes" = "Yes",
     "No" = "No",
 }
 
-export const NonPremiseLocationArray = Object.values(NonPremiseLocationEnum);
-
-export const NonPremiseLocation = () => enums(NonPremiseLocationArray);
+export const ZNonPremiseLocation = () => nativeEnum(ENonPremiseLocation);

@@ -1,3 +1,3 @@
-import { pattern, string } from "superstruct";
+import { z } from "zod";
 
-export const LocationID = () => pattern(string(), /^LOC\d{12}$/);
+export const ZLocationID = () => z.string().regex(/^LOC\d{12}$/);

@@ -1,3 +1,3 @@
-import { pattern, string } from "superstruct";
+import z from "zod";
 
-export const NTDMACAddress = () => pattern(string(), /^(?:--:){3}(?:[0-9A-Fa-f]{2}[:-]){2}(?:[0-9A-Fa-f]{2})$/);
+export const ZNTDMACAddress = () => z.string().regex(/^(?:--:){3}(?:[0-9A-Fa-f]{2}[:-]){2}(?:[0-9A-Fa-f]{2})$/);

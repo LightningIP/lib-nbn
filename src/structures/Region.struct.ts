@@ -1,6 +1,6 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
-export enum RegionEnum {
+export enum ERegion {
     "Urban" = "Urban",
     "Major Rural" = "Major Rural",
     "Minor Rural" = "Minor Rural",
@@ -8,6 +8,4 @@ export enum RegionEnum {
     "Isolated" = "Isolated",
 }
 
-export const RegionArray = Object.values(RegionEnum);
-
-export const Region = () => enums(RegionArray);
+export const ZRegion = () => nativeEnum(ERegion);

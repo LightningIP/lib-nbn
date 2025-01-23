@@ -1,6 +1,6 @@
-import { object, string } from "superstruct";
+import { strictObject, string } from "zod";
 
-export const ISiteRestrictionNote = object({
+export const ISiteRestrictionNote = strictObject({
     code: string(),
     reason: string(),
     relatedTo: string(),

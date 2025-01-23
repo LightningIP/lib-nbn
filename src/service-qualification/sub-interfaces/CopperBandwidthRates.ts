@@ -1,9 +1,9 @@
-import { enums, number, object, string } from "superstruct";
-import { FeatureType } from "../../structures";
+import { ZFeatureType, ZUnitOfMeasure } from "../../structures";
+import { z } from "zod";
 
-export const ICopperBandwidthRates = object({
-    bandwidthType: string(),
-    featureType: FeatureType(),
-    unitOfMeasure: enums(['Kbps', 'Mbps']),
-    bandwidth: number(),
+export const ICopperBandwidthRates = z.strictObject({
+    bandwidthType: z.string(),
+    featureType: ZFeatureType(),
+    unitOfMeasure: ZUnitOfMeasure(),
+    bandwidth: z.number(),
 });

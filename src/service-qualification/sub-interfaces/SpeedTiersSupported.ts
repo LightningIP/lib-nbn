@@ -1,7 +1,7 @@
-import { FeatureType } from "src/structures";
-import { boolean, string, object } from "superstruct";
+import { ZFeatureType } from "src/structures";
+import { z } from "zod";
 
-export const ISpeedTiersSupported = object({
-    featureType: FeatureType(),
-    supported: boolean(),
+export const ISpeedTiersSupported = z.strictObject({
+    featureType: ZFeatureType(),
+    supported: z.boolean(),
 });

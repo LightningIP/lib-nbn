@@ -1,54 +1,53 @@
 
-import { LocationID, NTDID, NTDLocation, NTDMACAddress, NTDPowerType, NTDType } from "../../../structures";
-import { any, array, assign, literal, object, optional, string, union } from "superstruct";
-import { CoerceDateTimeStruct } from "src/common/structures/date.struct";
+import { ZLocationID, ZNTDLocation, ZNTDMACAddress, ZNTDPowerType, ZNTDType, ZNTDID } from "../../../structures";
 import { ISpeedTiersSupported, INTDBatteryBackup, IUNIPort, INTDBandwidth } from "../";
+import { z } from "zod";
 
-const BASE = object({
-    id: NTDID(),
-    type: literal('NTD'),
-    version: literal('2.11.0'),
-    uniPortD: array(IUNIPort),
+const BASE = z.strictObject({
+    id: ZNTDID(),
+    type: z.literal('NTD'),
+    version: z.literal('2.11.0'),
+    uniPortD: IUNIPort.array(),
 });
 
-const NWAS = assign(BASE, object({
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDPowerType: NTDPowerType(),
-    NTDVersion: optional(string()),
-    NTDBandwidth: optional(array(INTDBandwidth)),
-    speedTiersSupported: array(ISpeedTiersSupported),
-    NTDInstallDate: optional(CoerceDateTimeStruct())
-}));
+const NWAS = BASE.extend({
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDPowerType: ZNTDPowerType(),
+    NTDVersion: z.string().optional(),
+    NTDBandwidth: INTDBandwidth.array().optional(),
+    speedTiersSupported: ISpeedTiersSupported.array(),
+    NTDInstallDate: z.date(),
+});
 
-const NFAS = assign(BASE, object({
-    uniPortV: optional(array(IUNIPort)),
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDPowerType: NTDPowerType(),
-    NTDBatteryBackup: optional(INTDBatteryBackup),
-    NTDInstallDate: optional(CoerceDateTimeStruct()),
-    NTDSiteLocation: union([object({
-        id: LocationID(),
-    }), any()]),
-}));
+const NFAS = BASE.extend({
+    uniPortV: IUNIPort.array().optional(),
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDPowerType: ZNTDPowerType(),
+    NTDBatteryBackup: INTDBatteryBackup.optional(),
+    NTDInstallDate: z.date().optional(),
+    NTDSiteLocation: z.object({
+        id: ZLocationID(),
+    }).optional(),
+});
 
-const NHAS = assign(BASE, object({
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDMACAddress: NTDMACAddress(),
-}));
+const NHAS = BASE.extend({
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDMACAddress: ZNTDMACAddress(),
+});
 
-const NSAS = assign(BASE, object({
-    antennaDishSize: optional(string()),
-    NTDLocation: NTDLocation(),
-    NTDType: NTDType(),
-    NTDPowerType: NTDPowerType(),
-    NTDBandwidth: optional(array(INTDBandwidth)),
-    NTDInstallDate: optional(CoerceDateTimeStruct())
-}));
+const NSAS = BASE.extend({
+    antennaDishSize: z.string().optional(),
+    NTDLocation: ZNTDLocation(),
+    NTDType: ZNTDType(),
+    NTDPowerType: ZNTDPowerType(),
+    NTDBandwidth: INTDBandwidth.array().optional(),
+    NTDInstallDate: z.date().optional(),
+});
 
-export const ISR_NTD_2110 = union([
+export const ISR_NTD_2110 = z.union([
     BASE,
     NWAS,
     NFAS,
