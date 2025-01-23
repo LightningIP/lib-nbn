@@ -1,6 +1,6 @@
 import { Property, Enum, Entity, ManyToOne } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
-import { ESpeedTierAvailability } from 'src/structures';
+import { ESpeedTierAvailability } from '../../structures';
 import { ETechnologyType } from '../../structures/TechnologyType.struct';
 import { IBandwidthAvailability, ICapacityAvailability } from '../sub-interfaces';
 

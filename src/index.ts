@@ -11,6 +11,7 @@ import { SiteRestrictionSupportingProduct } from './service-qualification/models
 import { SiteRestrictionSupportingProductFeature } from './service-qualification/models/SiteRestrictionSupportingProductFeature.entity';
 import { SiteRestrictionSupportingResourceEntity } from './service-qualification/models/SiteRestrictionSupportingResource.entity';
 
+export * from './service-qualification';
 export * from './structures';
 
 export const models = [

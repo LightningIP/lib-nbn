@@ -5,7 +5,7 @@ import {
   PrimaryKey,
   Ref,
 } from '@mikro-orm/core';
-import { SiteRestrictionEntity } from 'src/service-qualification/models/SiteRestriction.entity';
+import { SiteRestrictionEntity } from '../../service-qualification/models/SiteRestriction.entity';
 
 @Entity({
   tableName: 'location',

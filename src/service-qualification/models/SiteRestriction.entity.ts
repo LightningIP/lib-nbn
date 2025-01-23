@@ -1,6 +1,6 @@
 
 import { Collection, Embedded, Entity, Enum, OneToMany, PrimaryKey, Property } from '@mikro-orm/core'
-import { EServiceabilityStatus } from 'src/structures';
+import { EServiceabilityStatus } from '../../structures';
 import { SupportingTechnologyEntity } from './embeddables/SupportingTechnology.embed';
 import { SupportingRelatedSiteBoundariesEntity } from './embeddables/SupportingRelatedSiteBoundaries.embed';
 import { ISiteRestrictionNote } from '../sub-interfaces';

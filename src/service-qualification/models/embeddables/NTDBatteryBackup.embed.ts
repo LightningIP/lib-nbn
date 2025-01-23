@@ -1,5 +1,5 @@
 import { Embeddable, Enum, Property } from '@mikro-orm/core';
-import { BatteryPowerUnitMonitoredEnum } from 'src/structures';
+import { BatteryPowerUnitMonitoredEnum } from '../../../structures';
 
 @Embeddable()
 export class NTDBatteryBackup {

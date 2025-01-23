@@ -1,6 +1,6 @@
 import { array, boolean, object, optional, string } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
-import { ZSpeedTierAvailability, ZTechnologyType } from "src/structures";
+import { ZSpeedTierAvailability, ZTechnologyType } from "../../../structures";
 import { IBandwidthAvailability } from "../BandwidthAvailability";
 
 

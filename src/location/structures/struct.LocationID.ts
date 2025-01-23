@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { validateAadhaar } from "node-verhoeff";
+import { validateAadhaar } from "../../@custom_types/node-verhoeff";
 
 export const ZLocationID = () => z.string()
     .min(15, 'Location ID must be 15 characters long.')

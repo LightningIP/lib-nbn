@@ -1,4 +1,4 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
 export enum ServiceRestorationSLAEnum {
     "Standard" = "Standard",
@@ -8,4 +8,4 @@ export enum ServiceRestorationSLAEnum {
 
 export const ServiceRestorationSLAArray = Object.values(ServiceRestorationSLAEnum);
 
-export const ServiceRestorationSLA = () => enums(ServiceRestorationSLAArray);
+export const ServiceRestorationSLA = () => nativeEnum(ServiceRestorationSLAEnum);

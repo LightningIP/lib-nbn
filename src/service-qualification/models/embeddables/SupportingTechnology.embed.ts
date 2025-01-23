@@ -1,5 +1,5 @@
 import { Embeddable, Enum, Property } from "@mikro-orm/core";
-import { EAccessTechnology, ServiceabilityClassType } from "src/structures";
+import { EAccessTechnology, ServiceabilityClassType } from "../../../structures";
 
 @Embeddable()
 export class SupportingTechnologyEntity {

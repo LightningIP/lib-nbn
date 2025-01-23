@@ -1,4 +1,4 @@
-import { Infer, coerce, date, is, pattern, string, union } from "superstruct";
+/*import { Infer, coerce, date, is, pattern, string, union } from "zod";
 
 export const ISODateStruct = () => pattern(string(), /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/);
 export const ISOTZDateStruct = () => pattern(string(), /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/);
@@ -38,3 +38,4 @@ export const CoerceISOTZDateStruct = () => coerce(
         }
         throw new Error('Could not convert value ('+value+') to ISODate');
     });
+*/

@@ -7,7 +7,7 @@ import {
   ArrayType,
 } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
-import { EPriorityAssist } from 'src/structures';
+import { EPriorityAssist } from '../../structures';
 
 @Entity()
 export class SiteRestrictionSupportingProduct {

@@ -1,6 +1,6 @@
 import { Entity, Enum, Property } from "@mikro-orm/core";
-import { ESpeedTierAvailability, ETechnologyType } from "src/structures";
-import { IBandwidthAvailability, ICapacityAvailability } from "src/service-qualification/sub-interfaces";
+import { ESpeedTierAvailability, ETechnologyType } from "../../../../structures";
+import { IBandwidthAvailability, ICapacityAvailability } from "../../../../service-qualification/sub-interfaces";
 import { SiteRestrictionSupportingProductFeature } from "../../SiteRestrictionSupportingProductFeature.entity";
 
 

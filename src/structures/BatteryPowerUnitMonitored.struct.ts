@@ -1,4 +1,4 @@
-import { enums } from 'superstruct';
+import { nativeEnum } from 'zod';
 
 export enum BatteryPowerUnitMonitoredEnum {
   'ENABLED' = 'ENABLED',
@@ -7,4 +7,4 @@ export enum BatteryPowerUnitMonitoredEnum {
 
 export const BatteryPowerUnitMonitoredArray = Object.values(BatteryPowerUnitMonitoredEnum);
 
-export const BatteryPowerUnitMonitored = () => enums(BatteryPowerUnitMonitoredArray);
+export const BatteryPowerUnitMonitored = () => nativeEnum(BatteryPowerUnitMonitoredEnum);

@@ -1,6 +1,6 @@
 import { ETechonologyPlanStatusEnum, ZAccessTechnology } from "../../structures";
 import z from "zod";
-import { IReasonCode } from "src/common/interfaces/interface.ReasonCode";
+import { IReasonCode } from "../../common/interfaces/interface.ReasonCode";
 
 const ITechnologyPlanAccepted = z.strictObject({
     currentAccessTechnology: ZAccessTechnology(),

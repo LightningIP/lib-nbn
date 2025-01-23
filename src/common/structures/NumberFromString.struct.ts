@@ -1,5 +1,3 @@
-import { coerce, number, string } from "superstruct";
+import { number } from "zod";
 
-export const NumberFromString = () => {
-    return coerce(number(), string(), (v) => parseInt(v));
-}
+export const NumberFromString = () => number({ coerce: true });

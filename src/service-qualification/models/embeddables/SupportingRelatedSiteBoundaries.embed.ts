@@ -1,5 +1,5 @@
 import { Enum, Property } from "@mikro-orm/core";
-import { ERegion } from "src/structures"
+import { ERegion } from "../../../structures"
 
 export class SupportingRelatedSiteBoundariesEntity {
     

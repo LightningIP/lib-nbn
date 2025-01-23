@@ -1,4 +1,4 @@
-import { ZLocationID } from "src/location/structures/struct.LocationID";
+import { ZLocationID } from "../../location";
 import { z } from "zod";
 import { ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
 

@@ -1,4 +1,4 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
 export enum CopperPairStatusEnum {
     'Active' = 'Active',
@@ -7,4 +7,4 @@ export enum CopperPairStatusEnum {
 
 export const CopperPairStatusArray = Object.values(CopperPairStatusEnum);
 
-export const CopperPairStatus = () => enums(CopperPairStatusArray);
+export const CopperPairStatus = () => nativeEnum(CopperPairStatusEnum);

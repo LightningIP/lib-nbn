@@ -1,8 +1,8 @@
-import { enums } from "superstruct";
+import { nativeEnum } from "zod";
 
 export enum YesNoEnum {
     "Yes" = "Yes",
     "No" = "No",
 }
 
-export const YesNo = () => enums(Object.values(YesNoEnum));
+export const YesNo = () => nativeEnum((YesNoEnum));

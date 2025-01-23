@@ -1,5 +1,5 @@
 import { Embeddable, Property, Enum } from '@mikro-orm/core';
-import { ENonPremiseLocation } from 'src/structures/NonPremiseLocation.struct';
+import { ENonPremiseLocation } from '../../../structures';
 
 @Embeddable()
 export class SupportingRelatedLocationFeatures {
