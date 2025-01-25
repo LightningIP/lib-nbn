@@ -1,7 +1,7 @@
-import { ZCopperPairID, ZSupportingResourceType, ZServiceabilityClass, ZNBNServiceStatus, ZPOTSInterconnectType } from "../../../structures";
 import { ICopperBandwidthRates } from "../CopperBandwidthRates";
 import { IBandwidthRatesSupported } from "../BandwidthRatesSupported";
 import { z } from "zod";
+import { ZCopperPairID, ZNBNServiceStatus, ZPOTSInterconnectType, ZServiceabilityClass, ZSupportingResourceType } from "../../../../structures";
 
 export const ICopperLineResource = z.strictObject({
 

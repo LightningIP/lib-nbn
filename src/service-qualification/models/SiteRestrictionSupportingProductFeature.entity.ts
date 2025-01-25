@@ -1,7 +1,7 @@
 import { Property, Enum, Entity, ManyToOne } from '@mikro-orm/core';
 import { SiteRestrictionEntity } from './SiteRestriction.entity';
 import { ESpeedTierAvailability, ETechnologyType } from '../../structures';
-import { IBandwidthAvailability, ICapacityAvailability } from '../sub-interfaces';
+import { IBandwidthAvailability, ICapacityAvailability } from '../interfaces';
 
 @Entity({
   tableName: 'site_restriction_supporting_product_feature',

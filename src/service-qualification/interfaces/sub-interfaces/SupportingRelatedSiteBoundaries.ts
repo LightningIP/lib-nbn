@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZCSAID, ZPOIID, ZRegion } from "../../structures";
+import { ZCSAID, ZPOIID, ZRegion } from "../../../structures";
 
 export const ISupportingRelatedSiteBoundaries = z.strictObject({
     region: ZRegion(),

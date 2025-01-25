@@ -3,10 +3,10 @@ import { Collection, Embedded, Entity, Enum, OneToMany, PrimaryKey, Property } f
 import { EServiceabilityStatus } from '../../structures';
 import { SupportingTechnologyEntity } from './embeddables/SupportingTechnology.embed';
 import { SupportingRelatedSiteBoundariesEntity } from './embeddables/SupportingRelatedSiteBoundaries.embed';
-import { ISiteRestrictionNote } from '../sub-interfaces';
 import { SupportingRelatedLocationFeatures } from './embeddables/SupportingRelatedLocationFeatures.embed';
 import { SiteRestrictionSupportingProduct } from './SiteRestrictionSupportingProduct.entity';
 import { SiteRestrictionSupportingResourceEntity } from './SiteRestrictionSupportingResource.entity';
+import { ISiteRestrictionNote } from '../interfaces';
 
 @Entity({
     tableName: 'site_restriction',

@@ -1,6 +1,7 @@
-import { ZBandwidthType, ZFeatureType, ZUnitOfMeasure } from "../..//structures";
-import { number, object, string } from "zod";
+import { number } from "zod";
 import { strictObject } from "zod";
+import { ZBandwidthType } from "../../structures";
+import { ZFeatureType, ZUnitOfMeasure } from "../../../structures";
 
 export const IBandwidthAvailability = strictObject({
     bandwidthType: ZBandwidthType(),

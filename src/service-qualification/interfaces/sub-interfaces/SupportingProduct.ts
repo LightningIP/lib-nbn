@@ -1,5 +1,5 @@
 import { array, object, optional, string } from "zod";
-import { ZPriorityAssist } from "../..//structures";
+import { ZPriorityAssist } from "../../../structures";
 
 export const ISupportingProduct = object({
     id: string(),

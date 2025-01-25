@@ -1,5 +1,5 @@
 import { boolean, number, optional, z } from "zod";
-import { ZFeatureType, ZUnitOfMeasure } from "../../structures";
+import { ZFeatureType, ZUnitOfMeasure } from "../../../structures";
 
 export const ICapacityAvailability = z.strictObject({
     featureType: ZFeatureType(),

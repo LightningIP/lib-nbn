@@ -1,5 +1,5 @@
-import { ZFeatureType, ZUnitOfMeasure } from "../../structures";
 import { z } from "zod";
+import { ZFeatureType, ZUnitOfMeasure } from "../../../structures";
 
 export const IBandwidthRatesSupported = z.strictObject({
     bandwidthRate: z.number(),

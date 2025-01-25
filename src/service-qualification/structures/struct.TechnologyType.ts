@@ -6,6 +6,7 @@ export enum ETechnologyType {
     "NSAS" = "NSAS",
     "NHAS" = "NHAS",
     "NCAS" = "NCAS",
+    "EEAS" = "EEAS",
 }
 
 export const ZTechnologyType = () => nativeEnum(ETechnologyType);

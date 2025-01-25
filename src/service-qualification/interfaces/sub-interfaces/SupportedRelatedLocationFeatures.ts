@@ -1,5 +1,5 @@
 import { boolean, object, optional, string } from "zod";
-import { ZNonPremiseLocation } from "../../structures";
+import { ZNonPremiseLocation } from "../../../structures";
 
 export const ISupportingRelatedLocationFeatures = object({
     newDevelopmentsChargeApplies: boolean(),

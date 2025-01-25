@@ -1,4 +1,4 @@
-import { array, boolean, literal, object, string } from "zod";
+import { array, boolean, literal, object } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
 import { ZSpeedTierAvailability, ZTechnologyType } from "../../../structures";
 

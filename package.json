@@ -4,22 +4,22 @@
     "version": "0.3.0",
     "description": "Library of NBN interfaces",
     "exports": {
-        ".": "./dist/interfaces.js",
-        "./all": "./dist/index.js",
-        "./interfaces": "./dist/interfaces.js",
-        "./structures": "./dist/structures.js",
-        "./models": "./dist/models.js"
+        ".": {
+            "types": "./index.d.ts",
+            "require": "./lib/index.js"
+        }
     },
-    "types": "dist/index.d.ts",
+    "types": "./lib/index.d.ts",
     "type": "commonjs",
     "author": "",
     "license": "MIT",
-    "main": "dist/index.js",
+    "main": "./lib/index.js",
     "files": [
-        "dist/**/*"
+        "/lib"
     ],
     "scripts": {
-        "build": "tsc --build",
+        "build": "npm run clean && npm run build:cjs",
+        "build:cjs": "tsc --build",
         "clean": "tsc --build --clean",
         "watch": "tsc --watch",
         "updates": "npx npm-check-updates",
@@ -27,7 +27,6 @@
     },
     "dependencies": {
         "@mikro-orm/core": "^6.4.2",
-        "node-verhoeff": "^0.0.11",
         "zod": "^3.24.1"
     },
     "devDependencies": {

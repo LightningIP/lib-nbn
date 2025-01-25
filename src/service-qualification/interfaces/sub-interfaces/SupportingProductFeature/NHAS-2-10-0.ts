@@ -1,6 +1,6 @@
-import { array, boolean, literal, object, string } from "zod";
+import { array, boolean, literal, object } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
-import { ZSpeedTierAvailability, ZTechnologyType } from "structures";
+import { ZSpeedTierAvailability, ZTechnologyType } from "../../../structures";
 
 export const ISPF_NHAS_2100 = object({
     type: literal(ZTechnologyType().enum.NHAS),

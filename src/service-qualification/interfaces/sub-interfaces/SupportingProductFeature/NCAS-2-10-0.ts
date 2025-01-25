@@ -1,6 +1,6 @@
 import { array, boolean, object, optional, z } from "zod";
-import { ICapacityAvailability } from "../../";
 import { ZSpeedTierAvailability, ZTechnologyType } from "../../../structures";
+import { ICapacityAvailability } from "../CapacityAvailability";
 
 
 export const ISPF_NCAS_2100 = object({

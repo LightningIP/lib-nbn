@@ -14,4 +14,4 @@ export * from './SupportedRelatedLocationFeatures';
 export * from './SupportingProduct';
 export * from './SupportingRelatedSiteBoundaries';
 export * from './SupportingTechnology';
-export * from './UNIPort';
+export * from './zod.UNIPort';

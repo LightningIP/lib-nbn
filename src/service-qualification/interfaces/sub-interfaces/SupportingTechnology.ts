@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZAccessTechnology, ZServiceabilityClass } from "../../structures";
+import { ZAccessTechnology, ZServiceabilityClass } from "../../../structures";
 
 export const ISupportingTechnology= z.strictObject({
     primaryAccessTechnology: ZAccessTechnology(),

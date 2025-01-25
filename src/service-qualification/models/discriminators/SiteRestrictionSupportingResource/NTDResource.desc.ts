@@ -1,9 +1,9 @@
 import { Embedded, Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
 import { ENTDLocation, ENTDPowerType, ENTDType, ESupportingResourceType } from "../../../../structures";
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
-import { IUNIPort } from "../../../..//service-qualification/sub-interfaces";
 import { NTDBatteryBackup } from "../../embeddables/NTDBatteryBackup.embed";
 import { LocationEntity } from "../../../..//location/models/entity.location";
+import { IUNIPort } from "../../../interfaces";
 
 
 @Entity({

@@ -1,3 +1,3 @@
 
-export * from './sub-interfaces';
 export * from './interfaces';
+export * from './structures';

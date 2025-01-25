@@ -1,7 +1,7 @@
 import { Entity, Enum, Property } from "@mikro-orm/core";
 import { CopperPairStatusEnum, ENBNServiceStatus, EPOTSInterconnectType, ESupportingResourceType, ServiceabilityClassType } from "../../../../structures";
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
-import { IBandwidthRatesSupported, ICopperBandwidthRates } from "../../../..//service-qualification/sub-interfaces";
+import { IBandwidthRatesSupported, ICopperBandwidthRates } from "../../../interfaces";
 
 
 @Entity({

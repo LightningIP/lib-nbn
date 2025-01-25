@@ -1,2 +1,4 @@
-export * from './SiteRestriction';
-export * from './TechnologyPlan';
+export * from './sub-interfaces';
+
+export * from './zod.SiteRestriction';
+export * from './zod.TechnologyPlan';
