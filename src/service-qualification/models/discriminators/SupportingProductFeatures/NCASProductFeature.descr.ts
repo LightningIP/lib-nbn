@@ -20,9 +20,6 @@ export class NCASProductFeatureEntity extends SiteRestrictionSupportingProductFe
     })
     type = ETechnologyType.NCAS;
 
-    @Property({ type: 'jsonb', nullable: true })
-    capacityAvailability?: (typeof ICapacityAvailability._type)[];
-
     @Enum({
         items: () => ESpeedTierAvailability,
         array: true,

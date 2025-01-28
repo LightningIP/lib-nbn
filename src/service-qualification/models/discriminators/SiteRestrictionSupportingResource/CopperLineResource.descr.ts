@@ -18,7 +18,7 @@ export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceE
     items: () => ESupportingResourceType,
     nativeEnumName: 'supporting_resource_type',
   })
-  type!: ESupportingResourceType.CopperLineResource;
+  type: ESupportingResourceType.CopperLineResource = ESupportingResourceType.CopperLineResource;
 
   @Property()
   networkCoexistence!: boolean;

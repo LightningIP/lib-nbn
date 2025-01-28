@@ -21,9 +21,6 @@ export class NSASProductFeatureEntity extends SiteRestrictionSupportingProductFe
     })
     type = ETechnologyType.NSAS;
 
-    @Property({ type: 'jsonb', nullable: true })
-    capacityAvailability?: (typeof ICapacityAvailability._type)[];
-
     @Enum({
         items: () => ESpeedTierAvailability,
         array: true,

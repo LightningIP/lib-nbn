@@ -1,27 +1,30 @@
 {
     "name": "@lightningip/lib-nbn",
     "repository": "https://github.com/LightningIP/lib-nbn.git",
-    "version": "0.3.0",
+    "version": "2.0.0",
     "description": "Library of NBN interfaces",
+    "type": "module",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
     "exports": {
         ".": {
-            "types": "./index.d.ts",
-            "require": "./lib/index.js"
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
         }
     },
-    "types": "./lib/index.d.ts",
-    "type": "commonjs",
     "author": "",
     "license": "MIT",
-    "main": "./lib/index.js",
     "files": [
         "/lib"
     ],
     "scripts": {
-        "build": "npm run clean && npm run build:cjs",
+        "build": "tsup",
+        "watch": "tsup --watch",
+        "build2": "npm run clean && npm run build:cjs",
         "build:cjs": "tsc --build",
         "clean": "tsc --build --clean",
-        "watch": "tsc --watch",
+        "watch2": "tsc --watch",
         "updates": "npx npm-check-updates",
         "test": "npx node-ts test/index.ts"
     },
@@ -31,6 +34,7 @@
     },
     "devDependencies": {
         "@types/node": "^22.10.2",
+        "tsup": "^8.3.6",
         "node-ts": "^6.1.3",
         "typescript": "^5.6.3"
     }

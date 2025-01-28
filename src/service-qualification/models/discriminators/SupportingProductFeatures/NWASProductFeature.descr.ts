@@ -21,9 +21,6 @@ export class NWASProductFeatureEntity extends SiteRestrictionSupportingProductFe
     })
     type = ETechnologyType.NWAS;
 
-    @Property({ type: 'jsonb', nullable: true })
-    capacityAvailability?: (typeof ICapacityAvailability._type)[];
-
     @Enum({
         items: () => ESpeedTierAvailability,
         array: true,
@@ -31,8 +28,5 @@ export class NWASProductFeatureEntity extends SiteRestrictionSupportingProductFe
         nativeEnumName: 'speed_tier',
     })
     speedTierAvailability: ESpeedTierAvailability[] = [];
-
-    @Property({ type: 'jsonb', nullable: true })
-    bandwidthAvailability?: (typeof IBandwidthAvailability._type)[];
 
 }
