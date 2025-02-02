@@ -57,3 +57,5 @@ export const ITechnologyPlan = z.discriminatedUnion("status", [
     ITechnologyPlanCompleted,
     ITechnologyPlanRejected,
 ]);
+
+export type ITechnologyPlan = z.infer<typeof ITechnologyPlan>;
