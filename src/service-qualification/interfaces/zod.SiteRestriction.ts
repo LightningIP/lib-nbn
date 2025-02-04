@@ -16,5 +16,3 @@ export const ISiteRestriction = z.strictObject({
     supportingProduct: optional(array(ISupportingProduct)),
     notes: optional(array(ISiteRestrictionNote)),
 });
-
-export type ISiteRestriction = z.infer<typeof ISiteRestriction>;
