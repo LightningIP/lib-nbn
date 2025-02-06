@@ -1,5 +1,5 @@
 import { Entity, Enum, Property } from "@mikro-orm/core";
-import { CopperPairStatusEnum, ENBNServiceStatus, EPOTSInterconnectType, ESupportingResourceType, ServiceabilityClassType } from "../../../../structures";
+import { ECopperPairStatus, ENBNServiceStatus, EPOTSInterconnectType, ESupportingResourceType, ServiceabilityClassType } from "../../../../structures";
 import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
 import { IBandwidthRatesSupported, ICopperBandwidthRates } from "../../../interfaces";
 
@@ -24,11 +24,11 @@ export class CopperLineResourceEntity extends SiteRestrictionSupportingResourceE
   networkCoexistence!: boolean;
 
   @Enum({
-    items: () => CopperPairStatusEnum,
+    items: () => ECopperPairStatus,
     nativeEnumName: 'copper_pair_status',
     nullable: true,
   })
-  copperPairStatus?: CopperPairStatusEnum;
+  copperPairStatus?: ECopperPairStatus;
 
   @Property({ type: 'jsonb', nullable: true })
   bandwidthRatesSupported?: typeof IBandwidthRatesSupported._type[];

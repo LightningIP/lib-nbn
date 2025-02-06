@@ -1,7 +1,6 @@
 
 export * from './struct.AccessTechnology';
 export * from './BatteryPowerUnitMonitored.struct';
-export * from './CopperPairStatus.struct';
 export * from './struct.FeatureType';
 
 export * from './identifiers.struct';

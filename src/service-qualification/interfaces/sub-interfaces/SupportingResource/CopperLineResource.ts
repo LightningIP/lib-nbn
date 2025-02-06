@@ -1,7 +1,7 @@
 import { ICopperBandwidthRates } from "../CopperBandwidthRates";
 import { IBandwidthRatesSupported } from "../BandwidthRatesSupported";
 import { z } from "zod";
-import { ZCopperPairID, ZNBNServiceStatus, ZPOTSInterconnectType, ZServiceabilityClass, ZSupportingResourceType } from "../../../../structures";
+import { ZCopperPairID, ZCopperPairStatus, ZNBNServiceStatus, ZPOTSInterconnectType, ZServiceabilityClass, ZSupportingResourceType } from "../../../../structures";
 
 export const ICopperLineResource = z.strictObject({
 
@@ -11,7 +11,7 @@ export const ICopperLineResource = z.strictObject({
     
     networkCoexistence: z.boolean(),
 
-    copperPairStatus: ZCopperPairID().optional(),
+    copperPairStatus: ZCopperPairStatus().optional(),
 
     bandwidthRatesSupported: IBandwidthRatesSupported.array().optional(),
 
