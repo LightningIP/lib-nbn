@@ -1,4 +1,5 @@
 
+export * from './struct.AccessTechnologyCode';
 export * from './struct.BandwidthType';
 export * from './struct.CopperPairStatus';
 export * from './struct.ServiceabilityStatus';
