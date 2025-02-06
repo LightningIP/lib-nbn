@@ -31,7 +31,7 @@ export const IAddressDetail = z.strictObject({
     address1: z.string(),
     address2: z.string(),
     locality: z.string().optional(),
-    statusMessage: z.enum(['connected-true']).nullish(),
+    statusMessage: z.enum(['connected-true', 'connected']).nullish(),
     frustrated: z.boolean().optional(),
     zeroBuildCost: z.boolean().optional(),
     wp1DisconnectionDate: z.string().date().nullish(),
@@ -55,7 +55,7 @@ export const IAddressDetail = z.strictObject({
     // unsure of order
     greenfields: z.boolean().nullish(),
     TC2SMD: z.boolean().nullish(),
-    TC2SME: z.boolean().optional(),
+    TC2SME: z.boolean().nullish(),
     businessFibre: z.boolean().nullish(),
     mpsid: z.string().nullish(),
     serviceabilityMessage: z.string().nullish(),
