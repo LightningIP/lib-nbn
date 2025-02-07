@@ -1,7 +1,7 @@
 import { ZLocationID } from "../../location";
 import { z } from "zod";
 import { ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
-import { ZAccessTechnologyCode, ZTechnologyType } from "../../structures";
+import { ZAccessTechnologyCode } from "../../structures";
 
 export const IAddressDetail = z.strictObject({
     id: ZLocationID(),
@@ -14,12 +14,12 @@ export const IAddressDetail = z.strictObject({
 
     programType: z.string().nullish(),
     targetEligibilityQuarter: z.string().transform(v => v === 'NA' ? null : v).nullable(),
-    previousTechChangeStatus: z.literal('').nullish(),
+    previousTechChangeStatus: ZTechChangeStatus().nullish(),
     hstStatus: z.literal('').nullish(),
     hstSpeedTier: z.literal('').nullish(),
     changeoverDate: z.string().date().nullish(),
     patChangeDate: z.string().date().nullish(),
-    patChangeStatus: z.boolean().optional(),
+    patChangeStatus: z.boolean().nullish(),
     techFlip: z.boolean().nullish(),
     serviceType: z.string().optional(),
     serviceStatus: z.string().optional(),
@@ -45,12 +45,12 @@ export const IAddressDetail = z.strictObject({
     speedTierAvailability: z.boolean().optional(),
     eec: z.number().optional(),
     changeoverStatus: z.literal('').nullish(),
-    forecastedRTC: z.boolean().optional(),
-    coatChangeReason: ZCoatChangeReason().optional(),
+    forecastedRTC: z.boolean().nullish(),
+    coatChangeReason: ZCoatChangeReason().nullish(),
     cbdpricing: z.boolean().optional(),
     ADA: z.string().nullish(),
     ee: z.boolean(),
-    TC2SMM: z.boolean().optional(),
+    TC2SMM: z.boolean().nullish(),
 
     // unsure of order
     greenfields: z.boolean().nullish(),

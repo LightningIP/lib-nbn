@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 export enum ETechChangeStatus {
-    'Commited' = 'Commited',
+    'Commited' = 'Committed',
+    'Committed' = 'Committed',
     'Previous Tech Disconnected' = 'Previous Tech Disconnected',
     'New Tech Connected' = 'New Tech Connected',
     'Planned' = 'Planned',
