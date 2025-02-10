@@ -8,8 +8,6 @@ export const ZPRIID = () => z.string().regex(/^PRI\d{12}$/);
 
 export const ZPOIID = () => z.string().regex(/^\d[A-Z]{3}$/);
 
-export const ZNTDID = () => z.string().regex(/^NTD\d{12}$/);
-
 export const ZAVCID = () => z.string().regex(/^AVC\d{12}$/);
 
 export const ZUUID = () => z.string().uuid();
