@@ -10,4 +10,6 @@ export const ZPOIID = () => z.string().regex(/^\d[A-Z]{3}$/);
 
 export const ZAVCID = () => z.string().regex(/^AVC\d{12}$/);
 
+export const ZOVCID = () => z.string().regex(/^OVC\d{12}$/);
+
 export const ZUUID = () => z.string().uuid();
