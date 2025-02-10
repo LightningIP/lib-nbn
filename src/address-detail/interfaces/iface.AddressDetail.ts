@@ -1,7 +1,7 @@
 import { ZLocationID } from "../../location";
 import { z } from "zod";
 import { ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
-import { ZAccessTechnologyCode } from "../../structures";
+import { ZAccessTechnologyCode, ZSpeedTierAvailability } from "../../structures";
 
 export const IAddressDetail = z.strictObject({
     id: ZLocationID(),
@@ -15,8 +15,8 @@ export const IAddressDetail = z.strictObject({
     programType: z.string().nullish(),
     targetEligibilityQuarter: z.string().transform(v => v === 'NA' ? null : v).nullable(),
     previousTechChangeStatus: ZTechChangeStatus().nullish(),
-    hstStatus: z.literal('').nullish(),
-    hstSpeedTier: z.literal('').nullish(),
+    hstStatus: ZTechChangeStatus().nullish(),
+    hstSpeedTier: ZSpeedTierAvailability().nullish(),
     changeoverDate: z.string().date().nullish(),
     patChangeDate: z.string().date().nullish(),
     patChangeStatus: z.boolean().nullish(),
