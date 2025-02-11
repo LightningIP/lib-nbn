@@ -1,6 +1,6 @@
 import { ZLocationID } from "../../location";
 import { z } from "zod";
-import { ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
+import { ZChangeoverStatus, ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
 import { ZAccessTechnologyCode, ZSpeedTierAvailability } from "../../structures";
 
 export const IAddressDetail = z.strictObject({
@@ -44,7 +44,7 @@ export const IAddressDetail = z.strictObject({
     wp4DisconnectionStatus: z.string().nullish(),
     speedTierAvailability: z.boolean().optional(),
     eec: z.number().optional(),
-    changeoverStatus: z.literal('').nullish(),
+    changeoverStatus: ZChangeoverStatus().nullish(),
     forecastedRTC: z.boolean().nullish(),
     coatChangeReason: ZCoatChangeReason().nullish(),
     cbdpricing: z.boolean().optional(),
