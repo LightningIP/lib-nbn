@@ -37,6 +37,10 @@ export const ILocation = z.strictObject({
         "COMMERCIAL COMMITMENTS YET TO BE MET",
         "NETWORK INFRASTRUCTURE STILL UNDER CONSTRUCTION",
         "NEW ADDITION TO THE FOOTPRINT - INFRASTRUCTURE WILL REQUIRE DESIGN AND BUILD",
+        "FRUSTRATED PREMISES - NBN CO DENIED ACCESS TO INSTALL CRITICAL INFRASTRUCTURE",
+        "DDD LITE PREMISES",
+        "LOCATION WILL BE SERVICED BY A COMPACT SEALED DSLAM",
+        "PREMISES IS A COMMUNICATIONS EQUIPMENT ROOM",
     ]).nullable(),
     readyForServiceDate: z.string().date().nullable(),
     disconnectionDate: z.string().date().nullable(),
@@ -59,7 +63,7 @@ export const ILocation = z.strictObject({
     ]).nullable(),
     addressSiteName: z.string().nullable(),
     roadNumber1: z.number().int().nonnegative().or(z.string()).nullable(),
-    roadNumber2: z.number().int().positive().or(z.string()).nullable(),
+    roadNumber2: z.number().int().nonnegative().or(z.string()).nullable(),
     lotNumber: z.number().int().nonnegative().or(z.string()).nullable(),
     roadName: z.string(),
     roadSuffixCode: z.enum([
@@ -80,6 +84,7 @@ export const ILocation = z.strictObject({
         "RES", "EST", "WDS", "CTYD", "CMMNS", "CUTT", "VLLY", "RVR", "RTN", "BWLK", "PWAY", "RDS",
         "MTWY", "BCH", "FORD", "THRU", "RND", "FTRK", "GAP", "EXP", "PRST", "CRSE", "DELL", "WHRF",
         "CSWY", "HVN", "FLAT", "SVWY", "MANR", "CLR", "RDWY", "GLY", "VLLA", "CNWY", "CTR", "SBWY",
+        "DSTR",
 
     ]).nullable(),
     localityName: z.string(),
