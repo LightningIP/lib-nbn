@@ -1,13 +1,13 @@
-import { array, boolean, literal, object, optional } from "zod";
+import { boolean, object, optional, z } from "zod";
 import { ICapacityAvailability } from "../CapacityAvailability";
 import { ZSpeedTierAvailability, ZTechnologyType } from "../../../structures";
 
 export const ISPF_NFAS_2110 = object({
-    type: literal(ZTechnologyType().enum.NFAS),
-    version: literal('2.11.0'),
-    capacityAvailability: optional(array(ICapacityAvailability)),
-    speedTierAvailability: array(ZSpeedTierAvailability()),
-    TC2: optional(boolean()),
-    TR069UNIV: optional(boolean()),
-    FTPUNIV: optional(boolean()),
+    type: z.literal(ZTechnologyType().enum.NFAS),
+    version: z.enum(['2.10.0', '2.11.0']),
+    capacityAvailability: ICapacityAvailability.array().optional(),
+    speedTierAvailability: ZSpeedTierAvailability().array(),
+    TC2: z.boolean().optional(),
+    TR069UNIV: z.boolean().optional(),
+    FTPUNIV: z.boolean().optional(),
 });

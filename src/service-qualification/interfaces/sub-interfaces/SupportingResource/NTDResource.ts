@@ -18,7 +18,7 @@ const BASE = z.strictObject({
     antennaDishSize: z.string().optional(),
     NTDVersion: z.string().optional(),
     NTDBandwidth: INTDBandwidth.array().optional(),
-    NTDInstallDate: z.date().optional(),
+    NTDInstallDate: z.date({ coerce: true }).optional(),
     
     NTDBatteryBackup: INTDBatteryBackup.optional(),
     NTDSiteLocation: z.object({
