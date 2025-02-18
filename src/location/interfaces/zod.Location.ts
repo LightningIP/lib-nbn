@@ -2,8 +2,7 @@ import { z } from "zod";
 import { ZLocationID } from "../structures/struct.LocationID";
 import { ZCSAID, ZPOIID, ZServiceabilityClass } from "../../structures";
 
-
-export const ILocation = z.strictObject({
+const HFL_1 = z.strictObject({
     id: ZLocationID(),
     gnafId: z.string().regex(/^GA(?:NSW|WA_|QLD|VIC|SA_|TAS|ACT|NT_|OT_)\d{9}$/).nullable(),
     regionId: z.string(),
@@ -28,9 +27,16 @@ export const ILocation = z.strictObject({
         "Serviceable by FTTC, drop in place, DPU cut in complete, service had not been activated yet",
         "Serviceable by satellite but no satellite dish / NTD yet in place",
         "Serviced by satellite (dish and NTD in place)",
+        "Premises within HFC footprint, but not serviceable.",
         "Premises within HFC footprint, Drop, wall plate and NTD in place",
+        "Premises within HFC footprint, no drop, wall plate or NTD",
+        "Premises within HFC footprint, drop in place, no wall plate or NTD",
+        "Premises within HFC footprint, drop and wall plate in place no NTD ",
+        "NBN Co has not yet determined the NBN Co Network footprint that will apply to this address",
+        "Within Wireless Boundary (Wireless not in service)",
     ]),
     serviceClassReason: z.enum([
+        "PREMISES NOT SERVICEABLE",
         "NOT A PREMISES",
         "LOCATION LITE PREMISES",
         "BESPOKE CONNECTION REQUIRED",
@@ -41,6 +47,10 @@ export const ILocation = z.strictObject({
         "DDD LITE PREMISES",
         "LOCATION WILL BE SERVICED BY A COMPACT SEALED DSLAM",
         "PREMISES IS A COMMUNICATIONS EQUIPMENT ROOM",
+        "ADEQUATELY SERVED AREA - NOT CURRENTLY SERVICED BY NBN",
+        "PREMISE HAS NO LINE OF SIGHT WITH SATELLITE BEAM",
+        "NBN CO SATELLITE SUPPORT SCHEME PREMISES - NOT YET NBN SERVICEABLE",
+        "PREMISES IS IN A WIRELESS 'BLACK-SPOT' WITHIN A WIRELESS SERVING AREA (WSA)",
     ]).nullable(),
     readyForServiceDate: z.string().date().nullable(),
     disconnectionDate: z.string().date().nullable(),
@@ -54,12 +64,13 @@ export const ILocation = z.strictObject({
         "LSE", "SECURITY", "COMMS", "SEC", "SHRM", "TWR",
         "STOR", "HALL", "RECEPTION", "FIRE ALARM", "LIFT", "OTHER",
         "DATACENTRE", "BTSD", "CLUB", "CAGE", "BNGW", "LOFT", "MBTH",
-        "SUBS", "ELEC", "CNT MGMT", "WARD", "MGMT", 
-        "SVWY", "SERVER", "CCTV", "PLANT", "LBBY",
+        "SUBS", "ELEC", "CNT MGMT", "WARD", "MGMT", "SVWY", "SERVER",
+        "CCTV", "PLANT", "LBBY", "VLT", "TECHNICAL", "GAS", "FCR",
+        "WATER", "STR", "SEC ALARM",
     ]).nullable(),
     levelNumber: z.number().int().positive().or(z.string()).nullable(),
     levelTypeCode: z.enum([
-        "L", "G", "FL", "UG", "LG", "B", "P", "M", "LB", "RT", "PDM", "SB",
+        "L", "G", "FL", "UG", "LG", "B", "P", "M", "LB", "RT", "PDM", "SB", "PTHS",
     ]).nullable(),
     addressSiteName: z.string().nullable(),
     roadNumber1: z.number().int().nonnegative().or(z.string()).nullable(),
@@ -67,7 +78,7 @@ export const ILocation = z.strictObject({
     lotNumber: z.number().int().nonnegative().or(z.string()).nullable(),
     roadName: z.string(),
     roadSuffixCode: z.enum([
-        "W", "E", "S", "N", "EX",
+        "W", "E", "S", "N", "EX", "OF", "DE", "SW", "CN", "LR", "ML",
     ]).nullable(),
     roadTypeCode: z.enum([
         "AV", "ST", "RD", "TURN", "DR", "LANE", "HWY", "PDE", "CT", "PL", "TCE", "CCT", 
@@ -84,8 +95,10 @@ export const ILocation = z.strictObject({
         "RES", "EST", "WDS", "CTYD", "CMMNS", "CUTT", "VLLY", "RVR", "RTN", "BWLK", "PWAY", "RDS",
         "MTWY", "BCH", "FORD", "THRU", "RND", "FTRK", "GAP", "EXP", "PRST", "CRSE", "DELL", "WHRF",
         "CSWY", "HVN", "FLAT", "SVWY", "MANR", "CLR", "RDWY", "GLY", "VLLA", "CNWY", "CTR", "SBWY",
-        "DSTR",
-
+        "DSTR", "LDG", "FITR", "EXTN", "LINE", "INLT", "RSNG", "VLGE", "NTH", "TKWY", "INTG", "HLLW",
+        "CRK", "CNTN", "RAMP", "FTWY", "OTLT", "DOWN", "CRF", "DIP", "DE", "STRT", "TWIST", "SKLN",
+        "PSLA", "FORK", "DASH", "DIV", "BA", "STR", "MEAD", "EAST", "ARTL", "CSO", "BDGE", "LYNN",
+        "KNOL", 
     ]).nullable(),
     localityName: z.string(),
     secondaryComplexName: z.string().nullable(),
@@ -94,7 +107,7 @@ export const ILocation = z.strictObject({
     complexRoadName: z.null(),
     complexRoadTypeCode: z.null(),
     complexRoadSuffixCode: z.null(),
-    postcode: z.number().positive().int(),
+    postcode: z.number().positive().int().nullable(),
     stateTerritoryCode: z.enum(["QLD", "NSW", "WA", "VIC", "SA", "TAS", "ACT","NT"]),
     latitude: z.number({ coerce: true }),
     longitude: z.number({ coerce: true }),
@@ -106,32 +119,34 @@ export const ILocation = z.strictObject({
     serviceType: z.enum([
         "Brownfields FIBRE",
         "Greenfields FIBRE",
-        "Brownfields HFC",
-        "Greenfields FTTN-COPPER",
-        "Brownfields FTTN-COPPER",
-        "Brownfields FTTB-COPPER",
-        "Greenfields FTTC-COPPER",
-        "Brownfields FTTC-COPPER",
         "WIRELESS",
         "SATELLITE",
+        "Greenfields HFC",
+        "Brownfields HFC",
+        "Greenfields FTTC-COPPER",
+        "Brownfields FTTC-COPPER",
+        "Greenfields FTTN-COPPER",
+        "Brownfields FTTN-COPPER",
+        "Greenfields FTTB-COPPER",
+        "Brownfields FTTB-COPPER",
     ]),
-    listingType: z.enum(["HFL"]),
+    listingType: z.enum(["HFL", "PFL"]),
     technologyType: z.enum([
         "FIBRE", "WIRELESS", "SATELLITE",
         "HFC", "FIBRE TO THE CURB",
         "FIBRE TO THE NODE", "FIBRE TO THE BUILDING",
     ]),
     isEarlyAccessAvailable: z.null(),
-    poiIdentifier: ZPOIID(),
+    poiIdentifier: ZPOIID().or(z.literal('Undefined')),
     poiName: z.string(),
     transitionalPoiId: z.null(),
     transitionalPoiName: z.null(),
-    connectivityServicingAreaId: ZCSAID(),
+    connectivityServicingAreaId: ZCSAID().or(z.literal('Undefined')),
     connectivityServicingAreaName: z.string(),
     transitionalConnectivityServicingAreaId: z.null(),
     transitionalConnectivityServicingAreaName: z.null(),
     newDevelopmentsChargeApplies: z.boolean().nullable(),
-    deltaType: z.null(),
+    deltaType: z.enum(["Updated", "Created"]).nullable(),
     coexistenceStatus: z.boolean().nullable().optional(),
     lastUpdated: z.date({ coerce: true }),
     isCriticalService: z.null(),
@@ -158,4 +173,13 @@ export const ILocation = z.strictObject({
         "Customer Funded - Individual Premises Flip",
         "Never Connected and Inactive Premises Flip to Fibre",
     ]).nullable(),
-})
+});
+
+const HFL_2 = z.strictObject({
+    id: ZLocationID(),
+    gnafId: z.string().regex(/^GA(?:NSW|WA_|QLD|VIC|SA_|TAS|ACT|NT_|OT_)\d{9}$/),
+    regionId: z.string(),
+});
+
+export const ILocation = HFL_1;
+// 
