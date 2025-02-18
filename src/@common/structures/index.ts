@@ -14,7 +14,7 @@ export * from './NTDType.struct';
 export * from './POTSInterconnectType.struct';
 export * from './PriorityAssist.struct';
 export * from './Region.struct';
-export * from './ServiceabilityClass.struct';
+export * from '../../location/structures/struct.ServiceabilityClass';
 export * from './SupportingResourceType.struct';
 export * from './struct.TechnologyPlanStatus';
 export * from './struct.UnitOfMeasure';
