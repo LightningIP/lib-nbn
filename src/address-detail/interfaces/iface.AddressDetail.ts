@@ -10,7 +10,7 @@ export const IAddressDetail = z.strictObject({
     reasonCode: ZReasonCode(),
     altReasonCode: ZReasonCode().optional(),
 
-    techChangeStatus: ZTechChangeStatus().optional(),
+    techChangeStatus: ZTechChangeStatus().nullish(),
 
     programType: z.string().nullish(),
     targetEligibilityQuarter: z.string().transform(v => v === 'NA' ? null : v).nullable(),
