@@ -1,22 +1,16 @@
 import { z } from "zod";
 import { ZLocationID } from "../structures/struct.LocationID";
-import { ZCSAID, ZGNAFID, ZPOIID, ZServiceabilityClass, ZServiceClassDescription } from "../../structures";
-import { ZUnitTypeCode } from "../structures/struct.UnitTypeCode";
+import { ZPOIID, ZServiceabilityClass, ZServiceClassDescription } from "../../structures";
 import { ZServiceClassReason } from "../structures/struct.ServiceClassReason";
 import { ZCoatDescriptor } from "../structures/struct.CoatDescriptor";
-import { ZRoadTypeCode } from "../structures/struct.RoadTypeCode";
-import { ZHFLServiceType } from "../structures/struct.ServiceType";
-import { ZLevelTypeCode } from "../structures/struct.LevelTypeCode";
-import { ZRoadSuffixCode } from "../structures/struct.RoadSuffixCode";
 import { ZStateTerritoryCode } from "../structures/struct.StateTerritoryCode";
 import { ZServiceLevelRegion } from "../structures/struct.ServiceLevelRegion";
-import { ZListingType } from "../structures/struct.ListingType";
 import { ZTechnologyType } from "../structures/struct.TechnologyType";
 import { ZPlannedTechnology } from "../structures/struct.PlannedTechnology";
 import { ZCoatReason } from "../structures/struct.CoatReason";
 
 
-export const IHFLLocation = z.strictObject({
+export const IMapLocations = z.strictObject({
     id: ZLocationID(),
     formattedAddress: z.string().nonempty(),
 
@@ -73,6 +67,8 @@ export const IHFLLocation = z.strictObject({
     stateTerritoryCode: ZStateTerritoryCode,
     latitude: z.number({ coerce: true }),
     longitude: z.number({ coerce: true }),
+    latitudeGrid: z.number({ coerce: true }),
+    longitudeGrid: z.number({ coerce: true }),
 
     /**
      * This field may be used by customers as an indicator of whether the location may be eligible for a New Development Charge upon completion of the first connect order at a New Development Location, as defined under the WBA. This field will be blank in PFL.
