@@ -3,6 +3,12 @@ import { z } from "zod";
 import { ZChangeoverStatus, ZCoatChangeReason, ZReasonCode, ZTechChangeStatus } from "../structures";
 import { ZAccessTechnologyCode, ZSpeedTierAvailability } from "../../structures";
 
+/**
+ * @since 2025-02-24 - Split out to own constant, added FUTURE
+ * TODO: Should be split out into a separate file
+ */
+export const ZDisconnectionStatus = z.enum(['PAST', 'FUTURE']);
+
 export const IAddressDetail = z.strictObject({
     id: ZLocationID(),
     latitude: z.number(),
@@ -24,7 +30,7 @@ export const IAddressDetail = z.strictObject({
     serviceType: z.string().optional(),
     serviceStatus: z.string().optional(),
     mduFibreEligibility: z.boolean().optional(),
-    disconnectionStatus: z.enum(['PAST']).nullish(),
+    disconnectionStatus: ZDisconnectionStatus.nullish(),
     disconnectionDate: z.string().date().nullish(),
     techType: ZAccessTechnologyCode().nullish(),
     formattedAddress: z.string(),
