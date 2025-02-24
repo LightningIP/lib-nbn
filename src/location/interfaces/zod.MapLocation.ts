@@ -67,8 +67,8 @@ export const IMapLocations = z.strictObject({
     stateTerritoryCode: ZStateTerritoryCode,
     latitude: z.number({ coerce: true }),
     longitude: z.number({ coerce: true }),
-    latitudeGrid: z.number({ coerce: true }),
-    longitudeGrid: z.number({ coerce: true }),
+
+    gridId: z.string(),
 
     /**
      * This field may be used by customers as an indicator of whether the location may be eligible for a New Development Charge upon completion of the first connect order at a New Development Location, as defined under the WBA. This field will be blank in PFL.
