@@ -64,7 +64,7 @@ export const IHFLLocation = z.strictObject({
     transitionalConnectivityServicingAreaId: z.null(),
     transitionalConnectivityServicingAreaName: z.null(),
     newDevelopmentsChargeApplies: z.boolean().nullable(),
-    deltaType: z.enum(["Updated", "Created"]).nullable(),
+    deltaType: z.enum(["Updated", "Created"]).nullable().optional(),
     coexistenceStatus: z.boolean().nullable().optional(),
     lastUpdated: z.date({ coerce: true }),
     isCriticalService: z.null(),
