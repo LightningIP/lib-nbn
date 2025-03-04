@@ -31,4 +31,6 @@ export const ICopperLineResource = z.strictObject({
 
     POTSInterconnectType: ZPOTSInterconnectType().optional(),
 
+    serviceIDMatch: z.boolean().optional(),
+
 });

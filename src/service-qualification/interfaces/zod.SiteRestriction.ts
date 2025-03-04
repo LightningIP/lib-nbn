@@ -15,4 +15,8 @@ export const ISiteRestriction = z.strictObject({
     supportingResource: optional(array(ISupportingResource)),
     supportingProduct: optional(array(ISupportingProduct)),
     notes: optional(array(ISiteRestrictionNote)),
+    siteRestrictionError: z.strictObject({
+        code: z.string(),
+        message: z.string(),
+    }).optional(),
 });
