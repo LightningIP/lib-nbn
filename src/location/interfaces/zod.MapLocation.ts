@@ -110,5 +110,45 @@ export const IMapLocations = z.strictObject({
      * Indicates when nbn is planning to make the Planned Technology ready to connect. This is an indicative date only due to various factors that could affect construction processes.
      */
     coatForecastedRtcDate: z.string().nullable(),
+
+    targetEligibilityQuarter: z.string().nullish(),
     
+    hstStatus: z.enum([
+        'Not Planned',
+        'Planned',
+        'Committed',
+        'Eligible to Order',
+    ]).nullish(),
+
+    hstSpeedTier: z.enum([
+        'FW Plus', 'FW Home Fast', 'FW Superfast',
+    ]).nullish(),
+
+    mduFibreEligibility: z.boolean().nullish(),
+
+    speedTierAvailability: z.boolean().nullish(),
+
+    zeroBuildCost: z.boolean().nullish(),
+
+    eec: z.number().nullish(),
+
+    cbdpricing: z.boolean().nullish(),
+
+    ee: z.boolean().nullish(),
+
+    businessFibre: z.boolean().nullish(),
+
+    techChangeStatus: z.enum([
+        'Committed',
+        'Previous Tech Disconnected',
+        'New Tech Connected',
+        'Planned',
+        'MDU Complex Premises In Build',
+        'Eligible To Order',
+        'MDU Complex Eligible To Apply',
+        'In Design',
+        'Not Planned',
+        'Build Finalised',
+    ]).nullish(),
+
 });
