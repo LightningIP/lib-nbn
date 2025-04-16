@@ -8,6 +8,7 @@ export enum EReasonCode {
     'FTTB_CT' = 'FTTB_CT',
     'FTTB_NS' = 'FTTB_NS',
     'FTTB_SA' = 'FTTB_SA',
+    'FTTB_NA' = 'FTTB_NA',
     'FTTC_C' = 'FTTC_C',
     'FTTC_CT' = 'FTTC_CT',
     'FTTC_NS' = 'FTTC_NS',
