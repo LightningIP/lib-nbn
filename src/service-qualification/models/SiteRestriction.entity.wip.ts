@@ -1,11 +1,11 @@
 
 import { Collection, Embedded, Entity, Enum, OneToMany, PrimaryKey, Property } from '@mikro-orm/core'
 import { EServiceabilityStatus } from '../../structures';
-import { SupportingTechnologyEntity } from './embeddables/SupportingTechnology.embed';
-import { SupportingRelatedSiteBoundariesEntity } from './embeddables/SupportingRelatedSiteBoundaries.embed';
-import { SupportingRelatedLocationFeatures } from './embeddables/SupportingRelatedLocationFeatures.embed';
-import { SiteRestrictionSupportingProduct } from './SiteRestrictionSupportingProduct.entity';
-import { SiteRestrictionSupportingResourceEntity } from './SiteRestrictionSupportingResource.entity';
+import { SupportingTechnologyEntity } from './embeddables/SupportingTechnology.embed.wip';
+import { SupportingRelatedSiteBoundariesEntity } from './embeddables/SupportingRelatedSiteBoundaries.embed.wip';
+import { SupportingRelatedLocationFeatures } from './embeddables/SupportingRelatedLocationFeatures.embed.wip';
+import { SiteRestrictionSupportingProduct } from './SiteRestrictionSupportingProduct.entity.wip';
+import { SiteRestrictionSupportingResourceEntity } from './SiteRestrictionSupportingResource.entity.wip';
 import { ISiteRestrictionNote } from '../interfaces';
 
 @Entity({

@@ -6,7 +6,7 @@ import {
   Enum,
   ArrayType,
 } from '@mikro-orm/core';
-import { SiteRestrictionEntity } from './SiteRestriction.entity';
+import { SiteRestrictionEntity } from './SiteRestriction.entity.wip';
 import { EPriorityAssist } from '../../structures';
 
 @Entity()

@@ -1,5 +1,5 @@
 import { Property, Enum, Entity, ManyToOne } from '@mikro-orm/core';
-import { SiteRestrictionEntity } from './SiteRestriction.entity';
+import { SiteRestrictionEntity } from './SiteRestriction.entity.wip';
 import { ESpeedTierAvailability, ETechnologyType } from '../../structures';
 import { IBandwidthAvailability, ICapacityAvailability } from '../interfaces';
 

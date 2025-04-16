@@ -1,7 +1,7 @@
 import { Embedded, Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
 import { ENTDLocation, ENTDPowerType, ENTDType, ESupportingResourceType } from "../../../../structures";
-import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity";
-import { NTDBatteryBackup } from "../../embeddables/NTDBatteryBackup.embed";
+import { SiteRestrictionSupportingResourceEntity } from "../../SiteRestrictionSupportingResource.entity.wip";
+import { NTDBatteryBackup } from "../../embeddables/NTDBatteryBackup.embed.wip";
 import { LocationEntity } from "../../../..//location/models/entity.location";
 import { IUNIPort } from "../../../interfaces";
 

@@ -6,10 +6,10 @@ import { NFASProductFeatureEntity } from './service-qualification/models/discrim
 import { NHASProductFeatureEntity } from './service-qualification/models/discriminators/SupportingProductFeatures/NHASProductFeature.descr';
 import { NSASProductFeatureEntity } from './service-qualification/models/discriminators/SupportingProductFeatures/NSASProductFeature.descr';
 import { NWASProductFeatureEntity } from './service-qualification/models/discriminators/SupportingProductFeatures/NWASProductFeature.descr';
-import { SiteRestrictionEntity } from './service-qualification/models/SiteRestriction.entity';
-import { SiteRestrictionSupportingProduct } from './service-qualification/models/SiteRestrictionSupportingProduct.entity';
-import { SiteRestrictionSupportingProductFeature } from './service-qualification/models/SiteRestrictionSupportingProductFeature.entity';
-import { SiteRestrictionSupportingResourceEntity } from './service-qualification/models/SiteRestrictionSupportingResource.entity';
+import { SiteRestrictionEntity } from './service-qualification/models/SiteRestriction.entity.wip';
+import { SiteRestrictionSupportingProduct } from './service-qualification/models/SiteRestrictionSupportingProduct.entity.wip';
+import { SiteRestrictionSupportingProductFeature } from './service-qualification/models/SiteRestrictionSupportingProductFeature.entity.wip';
+import { SiteRestrictionSupportingResourceEntity } from './service-qualification/models/SiteRestrictionSupportingResource.entity.wip';
 
 const models = [
     LocationEntity,

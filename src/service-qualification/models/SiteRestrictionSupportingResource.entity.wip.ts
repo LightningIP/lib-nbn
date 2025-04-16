@@ -6,7 +6,7 @@ import {
   Enum,
   BaseEntity,
 } from '@mikro-orm/core';
-import { SiteRestrictionEntity } from './SiteRestriction.entity';
+import { SiteRestrictionEntity } from './SiteRestriction.entity.wip';
 import { ESupportingResourceType } from '../../structures';
 
 @Entity({
