@@ -1,9 +1,9 @@
-import { array, object, optional, string } from "zod";
+import { z } from "zod";
 import { ZPriorityAssist } from "../../../structures";
 
-export const ISupportingProduct = object({
-    id: string(),
-    priorityAssist: optional(ZPriorityAssist()),
-    serviceProviderId: optional(string()),
-    resourceRef: optional(array(string())),
+export const ISupportingProduct = z.strictObject({
+    id: z.string(),
+    priorityAssist: ZPriorityAssist().optional(),
+    serviceProviderId: z.string().optional(),
+    resourceRef: z.string().array().optional(),
 })
