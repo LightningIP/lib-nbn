@@ -6,4 +6,5 @@ export const ISupportingProduct = z.strictObject({
     priorityAssist: ZPriorityAssist().optional(),
     serviceProviderId: z.string().optional(),
     resourceRef: z.string().array().optional(),
+    serviceProvider: z.any().optional(),
 })

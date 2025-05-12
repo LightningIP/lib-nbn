@@ -4,7 +4,7 @@ import { INTDBandwidth } from "../NTDBandwidth";
 import { ISpeedTiersSupported } from "../SpeedTiersSupported";
 import { IUNIPort } from "../zod.UNIPort";
 import { INTDBatteryBackup } from "../NTDBatteryBackup";
-import { ZLocationID, ZNTDID, ZNTDLocation, ZNTDMACAddress, ZNTDPowerType, ZNTDType } from "../../../../structures";
+import { ZLocationID, ZNTDID, ZNTDLocation, ZNTDMACAddress, ZNTDPortStatus, ZNTDPowerType, ZNTDType } from "../../../../structures";
 
 const BASE = z.strictObject({
     id: ZNTDID(),
@@ -12,7 +12,7 @@ const BASE = z.strictObject({
     version: z.string(),
     uniPortD: z.strictObject({
         id: z.string(),
-        status: z.string(),
+        status: ZNTDPortStatus(),
     }).array(),
 
     antennaDishSize: z.string().optional(),

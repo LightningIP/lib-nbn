@@ -12,7 +12,7 @@ export const ISiteRestriction = z.strictObject({
     supportingRelatedSiteBoundaries: ISupportingRelatedSiteBoundaries,
     supportingRelatedLocationFeatures: ISupportingRelatedLocationFeatures,
     supportingProductFeatures: optional(array(ISupportingProductFeature)),
-    supportingResource: optional(array(ISupportingResource)),
+    supportingResource: ISupportingResource.array().optional(),
     supportingProduct: optional(array(ISupportingProduct)),
     notes: optional(array(ISiteRestrictionNote)),
     siteRestrictionError: z.strictObject({
