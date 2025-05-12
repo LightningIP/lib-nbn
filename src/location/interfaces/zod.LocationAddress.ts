@@ -4,9 +4,7 @@ import { ZUnitTypeCode } from "../structures/struct.UnitTypeCode";
 import { ZLevelTypeCode } from "../structures/struct.LevelTypeCode";
 import { ZRoadTypeCode } from "../structures/struct.RoadTypeCode";
 import { ZRoadSuffixCode } from "../structures/struct.RoadSuffixCode";
-import { StateTerritoryCode } from "@app/nbn-location/types/address.types";
 import { ZStateTerritoryCode } from "../structures/struct.StateTerritoryCode";
-import { last } from "rxjs";
 
 
 export const ILocationAddress = z.strictObject({
