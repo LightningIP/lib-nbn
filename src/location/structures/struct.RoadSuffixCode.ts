@@ -1,5 +1,15 @@
 import { z } from "zod";
 
-export const ZRoadSuffixCode = z.enum([
-    "W", "E", "S", "N", "EX", "OF", "DE", "SW", "CN", "LR", "ML",
-]);
+export enum ERoadSuffixCode {
+    N = 'N',
+    S = 'S',
+    E = 'E',
+    W = 'W',
+    SE = 'SE',
+    SW = 'SW',
+    EX = 'EX',
+    CN = 'CN',
+    DE = 'DE',
+}
+
+export const ZRoadSuffixCode = z.nativeEnum(ERoadSuffixCode);
