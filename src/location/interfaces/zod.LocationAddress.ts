@@ -33,7 +33,7 @@ export const ILocationAddress = z.strictObject({
     roadSuffixCode: ZRoadSuffixCode.nullish(),
 
     localityName: z.string().nullish(),
-    StateTerritoryCode: ZStateTerritoryCode.nullish(),
+    stateTerritoryCode: ZStateTerritoryCode.nullish(),
     postcode: z.string().nullish(),
 
     fullAddress: z.string().nullish(),
@@ -43,4 +43,5 @@ export const ILocationAddress = z.strictObject({
     latitude: z.number().nullish(),
     longitude: z.number().nullish(),
 
+    hoursSinceLastUpdate: z.any().optional(),
 });

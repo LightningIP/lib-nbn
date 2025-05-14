@@ -19,4 +19,5 @@ export const ISiteRestriction = z.strictObject({
         code: z.string(),
         message: z.string(),
     }).optional(),
+    hoursSinceLastUpdate: z.any().optional(),
 });
